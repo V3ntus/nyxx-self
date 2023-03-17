@@ -231,15 +231,21 @@ class NyxxRest extends INyxxRest {
     _logger.info('Disposing and closing client...');
 
     for (final plugin in _plugins) {
+      _logger.fine('Triggering onBotStop for plugin: ${plugin.name}');
       await plugin.onBotStop(this, plugin.logger);
     }
 
+    _logger.fine("Triggering RestClient dispose...");
     await eventsRest.dispose();
 
+    _logger.fine("Triggering onReadyController dispose...");
     onReadyController.close();
 
+    _logger.fine("Triggering guilds dispose...");
     await guilds.dispose();
+    _logger.fine("Triggering users dispose...");
     await users.dispose();
+    _logger.fine("Triggering channels dispose...");
     await channels.dispose();
   }
 
