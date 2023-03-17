@@ -46,7 +46,7 @@ class HttpHandler {
 
   Future<HttpResponse> execute(HttpRequest request) async {
     if (request.auth) {
-      request.headers.addAll({"Authorization": "Bot ${client.token}"});
+      request.headers.addAll({"Authorization": client.token});
     }
 
     HttpBucket? currentBucket = _bucketByRequestRateLimitId[request.rateLimitId];
