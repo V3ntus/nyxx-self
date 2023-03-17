@@ -41,9 +41,9 @@ class ClientOAuth2Application extends OAuth2Application implements IClientOAuth2
   /// Creates an instance of [ClientOAuth2Application]
   ClientOAuth2Application(RawApiMap raw, INyxx client) : super(raw, client) {
     flags = raw["flags"] != null ? ApplicationFlags(raw['flags'] as int) : null;
-    owner = User(client, raw["owner"] as RawApiMap);
-    isPublic = raw['bot_public'] as bool;
-    requireCodeGrant = raw['bot_require_code_grant'] as bool;
+    owner = User(client, raw);
+    isPublic = false;
+    requireCodeGrant = false;
   }
 
   /// Creates an OAuth2 URL with the specified permissions.

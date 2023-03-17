@@ -98,24 +98,20 @@ class OAuth2Application extends SnowflakeEntity implements IOAuth2Application {
 
   /// Creates an instance of [OAuth2Application]
   OAuth2Application(RawApiMap raw, this.client) : super(Snowflake(raw["id"])) {
-    description = raw["description"] as String;
-    name = raw["name"] as String;
+    description = "";
+    name = "";
 
-    icon = raw["icon"] as String?;
-    rpcOrigins = (raw["rpc_origins"] as List?)?.cast<String>();
-    coverImage = raw['cover_image'] as String?;
-    if (raw['team'] != null) {
-      team = AppTeam(raw['team'] as RawApiMap, client);
-    } else {
-      team = null;
-    }
+    icon = null;
+    rpcOrigins = null;
+    coverImage = null;
+    team = null;
 
-    termsOfServiceUrl = raw['terms_of_service_url'] as String?;
-    privacyPolicyUrl = raw['privacy_policy_url'] as String?;
-    verifyKey = raw['verify_key'] as String;
-    guildId = raw['guild_id'] != null ? Snowflake(raw['guild_id']) : null;
-    primarySkuId = raw['primary_sku_id'] != null ? Snowflake(raw['primary_sku_id']) : null;
-    slug = raw['slug'] as String?;
+    termsOfServiceUrl = null;
+    privacyPolicyUrl = null;
+    verifyKey = "";
+    guildId = null;
+    primarySkuId = null;
+    slug = null;
   }
 
   /// Returns url to apps icon
