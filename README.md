@@ -1,17 +1,21 @@
-# nyxx
+# nyxx-self
 
-[![Discord Shield](https://discordapp.com/api/guilds/846136758470443069/widget.png?style=shield)](https://discord.gg/nyxx)
 [![pub](https://img.shields.io/pub/v/nyxx.svg)](https://pub.dartlang.org/packages/nyxx)
 [![documentation](https://img.shields.io/badge/Documentation-nyxx-yellow.svg)](https://www.dartdocs.org/documentation/nyxx/latest/)
 
-Simple, robust framework for creating discord bots for Dart language.
+The **self-bot** fork of nyxx, a simple, robust framework for creating discord bots for Dart language.
 
 <hr />
 
+## Disclaimer:
+> Self-botting is against Discord ToS. I do not encourage the use of this library and I am not held responsible for any
+> damages or consequences inflicted upon you due to improper use of this library.
+
+### Notice:
+This fork is a work-in-progress proof of concept. If you are using this fork, **report issues to this repo**.
+
 ### Features
 
-- **Slash commands support** <br>
-  Supports and provides easy API for creating and handling slash commands
 - **Commands framework included** <br>
   A fast way to create a bot with command support. Implementing the framework is simple - and everything is done automatically.
 - **Cross Platform** <br>
@@ -43,6 +47,9 @@ void main() {
 ```
 
 ## Other nyxx packages
+
+> **Notice**: At this time, it is not guaranteed that these extensions will work for self-bots (ex. `interactions`).
+> Proceed at your own risk if you truly know what you are doing.
 
 - [nyxx_interactions](https://github.com/nyxx-discord/nyxx_interactions)
 - [nyxx_commander](https://github.com/nyxx-discord/nyxx_commander)
