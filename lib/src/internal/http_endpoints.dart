@@ -1466,8 +1466,7 @@ class HttpEndpoints implements IHttpEndpoints {
     ..bot()));
 
   Future<HttpResponse> getMeApplication() => executeSafe(BasicRequest(HttpRoute()
-    ..oauth2()
-    ..applications(id: "@me")));
+    ..users(id: "@me")));
 
   @override
   Future<IGuildPreview> fetchGuildPreview(Snowflake guildId) async {
