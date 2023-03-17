@@ -1,4 +1,4 @@
-name: nyxx-self
+name: nyxx_self
 version: 5.0.0
 description: The self-bot fork of nyxx, a simple, robust framework for creating discord bots for Dart language.
 homepage: https://github.com/V3ntus/nyxx
