@@ -6,6 +6,12 @@ import 'package:nyxx/src/internal/constants.dart';
 import 'package:nyxx/src/internal/http/http_route.dart';
 import 'package:nyxx/src/typedefs.dart';
 
+String _genSuperProps(Object obj) {
+  return base64Encode(
+    utf8.encode(jsonEncode(obj))
+  );
+}
+
 abstract class HttpRequest {
   late final Uri uri;
   late final Map<String, String> headers;
@@ -25,8 +31,45 @@ abstract class HttpRequest {
     this.headers = headers ?? {};
   }
 
+  // TODO: implement UA fetch from dolfies (?) API
   Map<String, String> genHeaders() =>
-      {...headers, if (auditLog != null) "X-Audit-Log-Reason": auditLog!, "User-Agent": "Nyxx (${Constants.repoUrl}, ${Constants.version})"};
+      {
+        ...headers,
+        "Accept-Language": "en-US",
+        "Cache-Control": "no-cache",
+        "Connection": "keep-alive",
+        "Origin": "https://discord.com",
+        "Pragma": "no-cache",
+        "Referer": "https://discord.com/channels/@me",
+        "Sec-CH-UA": '"Google Chrome";v="111", "Chromium";v="111", ";Not A Brand";v="99"',
+        "Sec-CH-UA-Mobile": "?0",
+        "Sec-CH-UA-Platform": '"Windows"',
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin",
+        "User-Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
+        "X-Discord-Locale": "en-US",
+        "X-Debug-Options": "bugReporterEnabled",
+        "X-Super-Properties": _genSuperProps(
+          {
+            'os': 'Windows',
+            'browser': 'Chrome',
+            'device': '',
+            'browser_user_agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+            'browser_version': "111.0.0.0",
+            'os_version': '10',
+            'referrer': '',
+            'referring_domain': '',
+            'referrer_current': '',
+            'referring_domain_current': '',
+            'release_channel': 'stable',
+            'system_locale': 'en-US',
+            'client_build_number': 181113,
+            'client_event_source': null,
+            'design_id': 0,
+          }
+        ),
+      };
 
   Future<http.BaseRequest> prepareRequest();
 
