@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:http/http.dart' as http;
 
 import 'package:logging/logging.dart';
@@ -9,6 +10,14 @@ import 'package:nyxx/src/internal/http/http_bucket.dart';
 import 'package:nyxx/src/internal/http/http_request.dart';
 import 'package:nyxx/src/internal/http/http_response.dart';
 import 'package:nyxx/src/utils/utils.dart';
+
+class DevHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback = (X509Certificate cert, String host, int port) => true;
+  }
+}
 
 class HttpHandler {
   late final http.Client httpClient;
@@ -23,6 +32,7 @@ class HttpHandler {
 
   /// Creates an instance of [HttpHandler]
   HttpHandler(this.client) {
+    // HttpOverrides.global = DevHttpOverrides();
     httpClient = http.Client();
   }
 
