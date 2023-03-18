@@ -25,6 +25,7 @@ import 'package:nyxx_self/src/core/message/message.dart';
 import 'package:nyxx_self/src/core/message/sticker.dart';
 import 'package:nyxx_self/src/core/user/member.dart';
 import 'package:nyxx_self/src/core/user/user.dart';
+import 'package:nyxx_self/src/core/profile/profile.dart';
 import 'package:nyxx_self/src/core/voice/voice_region.dart';
 import 'package:nyxx_self/src/internal/constants.dart';
 import 'package:nyxx_self/src/internal/cache/cacheable.dart';
@@ -164,6 +165,9 @@ abstract class IHttpEndpoints {
 
   /// Fetches [User] object for given [userId]
   Future<IUser> fetchUser(Snowflake userId);
+
+  /// Fetches [Profile] object for given [userId] and optional [guildId]
+  Future<IProfile> fetchProfile(Snowflake userId, {Snowflake? guildId});
 
   /// "Edits" guild member. Allows to manipulate other guild users.
   Future<void> editGuildMember(Snowflake guildId, Snowflake memberId, {required MemberBuilder builder, String? auditReason});
@@ -900,6 +904,22 @@ class HttpEndpoints implements IHttpEndpoints {
     }
 
     return user;
+  }
+
+  @override
+  Future<IProfile> fetchProfile(Snowflake userId, {Snowflake? guildId}) async {
+    final response = await executeSafe(BasicRequest(HttpRoute()
+      ..users(id: userId.toString())
+      ..profile()
+    ));
+
+    final profile = Profile(client, response.jsonBody as RawApiMap);
+
+    if (client.cacheOptions.profileCachePolicyLocation.http) {
+      client.users[profile.user.id] = profile.user;
+    }
+
+    return profile;
   }
 
   @override
