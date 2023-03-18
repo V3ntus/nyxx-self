@@ -238,9 +238,10 @@ class NyxxRest extends INyxxRest {
 
     _logger.fine("Triggering RestClient dispose...");
     await eventsRest.dispose();
+    await httpHandler.dispose();
 
     _logger.fine("Triggering onReadyController dispose...");
-    onReadyController.close();
+    await onReadyController.close();
 
     _logger.fine("Triggering guilds dispose...");
     await guilds.dispose();
