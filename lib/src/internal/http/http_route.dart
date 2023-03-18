@@ -74,6 +74,9 @@ abstract class IHttpRoute {
   /// Adds the [`rules`](https://discord.com/developers/docs/resources/auto-moderation#get-auto-moderation-rule) part to this [IHttpRoute].
   void rules({String? id});
 
+  /// Adds the [`profile`](https://discord.com/developers/docs/resources/user) part to this [IHttpRoute].
+  void profile();
+
   /// Adds the [`prune`](https://discord.com/developers/docs/resources/guild#get-guild-prune-count) part to this [IHttpRoute].
   void prune();
 
@@ -222,6 +225,9 @@ class HttpRoute implements IHttpRoute {
 
   @override
   void rules({String? id}) => add(HttpRoutePart('rules', [if (id != null) HttpRouteParam(id)]));
+
+  @override
+  void profile() => add(HttpRoutePart("profile"));
 
   @override
   void prune() => add(HttpRoutePart("prune"));
