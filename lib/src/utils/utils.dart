@@ -27,3 +27,7 @@ extension ListSafeFirstWhere<E> on List<E> {
     return '${sublist(0, length - 1).join(', ')} $separator $last';
   }
 }
+
+DateTime? parseTime(String? timestamp) {
+  return timestamp != null ? DateTime.tryParse(timestamp) : null;
+}
