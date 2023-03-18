@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:logging/logging.dart';
 import 'package:nyxx_self/src/client_options.dart';
 import 'package:nyxx_self/src/core/channel/invite.dart';
+import 'package:nyxx_self/src/core/profile/profile.dart';
 import 'package:nyxx_self/src/core/snowflake.dart';
 import 'package:nyxx_self/src/core/application/client_oauth2_application.dart';
 import 'package:nyxx_self/src/core/channel/channel.dart';
@@ -290,7 +291,16 @@ abstract class INyxxWebsocket implements INyxxRest {
   /// var user = await client.fetchUser(Snowflake("302359032612651009"));
   /// ```
   Future<IUser> fetchUser(Snowflake userId);
-
+  
+  /// Get profile instance with specified user ID and optional guild id.
+  /// ```dart
+  /// var profile = await client.fetchProfile(
+  ///   Snowflake("302359032612651009"),
+  ///   guildId: Snowflake("302359032612651009")
+  /// );
+  /// ```
+  Future<IProfile> fetchProfile(Snowflake userId, {Snowflake? guildId});
+  
   /// Gets a webhook by its id and/or token.
   /// If token is supplied authentication is not needed.
   Future<IWebhook> fetchWebhook(Snowflake id, {String token = ""});
@@ -421,6 +431,16 @@ class NyxxWebsocket extends NyxxRest implements INyxxWebsocket {
   /// ```
   @override
   Future<IUser> fetchUser(Snowflake userId) => httpEndpoints.fetchUser(userId);
+
+  /// Get profile instance with specified user ID and optional guild id.
+  /// ```dart
+  /// var profile = await client.fetchProfile(
+  ///   Snowflake("302359032612651009"),
+  ///   guildId: Snowflake("302359032612651009")
+  /// );
+  /// ```
+  @override
+  Future<IProfile> fetchProfile(Snowflake userId, {Snowflake? guildId}) => httpEndpoints.fetchProfile(userId, guildId: guildId);
 
   /// Creates a guild.
   ///
