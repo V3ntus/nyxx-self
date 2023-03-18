@@ -77,7 +77,7 @@ class Profile extends SnowflakeEntity implements IProfile {
   /// Takes a list of mutual guilds from the profile and converts it
   /// into a list of [GuildCacheable] objects.
   List<Cacheable<Snowflake, IGuild>?> _parseMutualGuilds(
-      List<Map<String, dynamic>> mutualGuilds) {
+      List<dynamic> mutualGuilds) {
     if (mutualGuilds.isEmpty) return [];
 
     return [
@@ -98,7 +98,7 @@ class Profile extends SnowflakeEntity implements IProfile {
           Snowflake(raw["guild_member_profile"]["guild_id"] as String));
     }
     mutualGuilds =
-        _parseMutualGuilds(raw["mutual_guilds"] as List<Map<String, dynamic>>);
+        _parseMutualGuilds(raw["mutual_guilds"] as List<dynamic>);
     boostingSince = parseTime(raw["premium_guild_since"] as String);
     nitroSince = parseTime(raw["premium_since"] as String);
     nitroType = NitroType.from(raw["premium_type"] as int);
