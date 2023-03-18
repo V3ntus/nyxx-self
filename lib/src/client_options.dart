@@ -26,6 +26,9 @@ class CacheOptions {
   /// Defines in which places user can be cached
   CachePolicyLocation userCachePolicyLocation = CachePolicyLocation();
 
+  /// Defines in which places profile can be cached
+  CachePolicyLocation profileCachePolicyLocation = CachePolicyLocation();
+
   /// Defines in which locations members will be cached
   CachePolicyLocation messageCachePolicyLocation = CachePolicyLocation();
 
