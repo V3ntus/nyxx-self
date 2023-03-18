@@ -37,3 +37,7 @@ test-*.dart
 coverage.json
 lcov.info
 .vscode/
+
+lib/startbot.sh
+
+lib/test.dart
