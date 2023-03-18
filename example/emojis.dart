@@ -1,4 +1,4 @@
-import 'package:nyxx/nyxx.dart';
+import 'package:nyxx_self/nyxx.dart';
 
 void main(List<String> args) {
   // Create new bot instance. Replace string with your token

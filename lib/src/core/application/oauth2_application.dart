@@ -1,8 +1,8 @@
-import 'package:nyxx/src/core/application/app_team.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/core/application/app_team.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 abstract class IOAuth2Application implements SnowflakeEntity {
   /// The app's description.

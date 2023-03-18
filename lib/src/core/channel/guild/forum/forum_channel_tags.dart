@@ -1,4 +1,4 @@
-import 'package:nyxx/src/utils/permissions.dart';
+import 'package:nyxx_self/src/utils/permissions.dart';
 
 abstract class IForumChannelTags {
   /// This thread is pinned to the top of its parent GUILD_FORUM channel

@@ -1,4 +1,4 @@
-import 'package:nyxx/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
 
 /// Could be either [IUser], [IMember] or [IWebhook].
 /// [IWebhook] will have most of field missing.

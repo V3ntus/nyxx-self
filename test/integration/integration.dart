@@ -1,11 +1,11 @@
 import 'dart:io';
 import 'dart:math';
 
-import 'package:nyxx/nyxx.dart';
+import 'package:nyxx_self/nyxx.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 
-import 'package:nyxx/src/internal/event_controller.dart';
+import 'package:nyxx_self/src/internal/event_controller.dart';
 
 final testChannelSnowflake = Snowflake(846139169818017812);
 final testGuildSnowflake = Snowflake(846136758470443069);

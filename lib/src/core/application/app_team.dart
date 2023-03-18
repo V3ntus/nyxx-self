@@ -1,8 +1,8 @@
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/core/application/app_team_member.dart';
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/core/application/app_team_member.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 /// Object of team that manages given app
 abstract class IAppTeam implements SnowflakeEntity {

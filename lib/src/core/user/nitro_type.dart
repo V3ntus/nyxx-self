@@ -1,4 +1,4 @@
-import 'package:nyxx/src/utils/enum.dart';
+import 'package:nyxx_self/src/utils/enum.dart';
 
 ///Premium types denote the level of premium a user has.
 class NitroType extends IEnum<int> {

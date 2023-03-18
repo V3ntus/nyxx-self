@@ -1,8 +1,8 @@
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/application/oauth2_application.dart';
-import 'package:nyxx/src/core/user/user.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/permissions.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/application/oauth2_application.dart';
+import 'package:nyxx_self/src/core/user/user.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/permissions.dart';
 
 /// The client's OAuth2 app, if the client is a bot.
 abstract class IClientOAuth2Application implements IOAuth2Application {

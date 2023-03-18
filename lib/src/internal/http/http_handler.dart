@@ -2,14 +2,14 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 import 'package:logging/logging.dart';
-import 'package:nyxx/src/events/http_events.dart';
-import 'package:nyxx/src/events/ratelimit_event.dart';
-import 'package:nyxx/src/internal/event_controller.dart';
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/internal/http/http_bucket.dart';
-import 'package:nyxx/src/internal/http/http_request.dart';
-import 'package:nyxx/src/internal/http/http_response.dart';
-import 'package:nyxx/src/utils/utils.dart';
+import 'package:nyxx_self/src/events/http_events.dart';
+import 'package:nyxx_self/src/events/ratelimit_event.dart';
+import 'package:nyxx_self/src/internal/event_controller.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/internal/http/http_bucket.dart';
+import 'package:nyxx_self/src/internal/http/http_request.dart';
+import 'package:nyxx_self/src/internal/http/http_response.dart';
+import 'package:nyxx_self/src/utils/utils.dart';
 
 class DevHttpOverrides extends HttpOverrides {
   @override

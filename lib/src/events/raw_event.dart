@@ -1,5 +1,5 @@
-import 'package:nyxx/src/internal/shard/shard.dart';
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/internal/shard/shard.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 /// Raw gateway event
 abstract class IRawEvent {

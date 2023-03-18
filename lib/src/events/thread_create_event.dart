@@ -1,6 +1,6 @@
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/channel/thread_channel.dart';
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/channel/thread_channel.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 abstract class IThreadCreateEvent {
   /// The thread that was just created

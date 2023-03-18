@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:logging/logging.dart';
-import 'package:nyxx/nyxx.dart';
+import 'package:nyxx_self/nyxx.dart';
 
 abstract class BasePlugin {
   Logger get logger => Logger(name);

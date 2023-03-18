@@ -1,10 +1,10 @@
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/guild/status.dart';
-import 'package:nyxx/src/core/user/presence.dart';
-import 'package:nyxx/src/core/user/user.dart';
-import 'package:nyxx/src/internal/cache/cacheable.dart';
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/guild/status.dart';
+import 'package:nyxx_self/src/core/user/presence.dart';
+import 'package:nyxx_self/src/core/user/user.dart';
+import 'package:nyxx_self/src/internal/cache/cacheable.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 abstract class IPresenceUpdateEvent {
   /// User object

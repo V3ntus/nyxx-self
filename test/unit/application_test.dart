@@ -1,6 +1,6 @@
-import 'package:nyxx/nyxx.dart';
-import 'package:nyxx/src/core/application/app_team.dart';
-import 'package:nyxx/src/core/application/client_oauth2_application.dart';
+import 'package:nyxx_self/nyxx.dart';
+import 'package:nyxx_self/src/core/application/app_team.dart';
+import 'package:nyxx_self/src/core/application/client_oauth2_application.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 

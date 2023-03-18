@@ -1,5 +1,5 @@
-import 'package:nyxx/src/internal/shard/shard.dart';
-import 'package:nyxx/src/utils/enum.dart';
+import 'package:nyxx_self/src/internal/shard/shard.dart';
+import 'package:nyxx_self/src/utils/enum.dart';
 
 abstract class IDisconnectEvent {
   /// The shard that got disconnected.

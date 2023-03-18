@@ -1,5 +1,5 @@
-import 'package:nyxx/nyxx.dart';
-import 'package:nyxx/src/core/message/guild_emoji.dart';
+import 'package:nyxx_self/nyxx.dart';
+import 'package:nyxx_self/src/core/message/guild_emoji.dart';
 
 abstract class IReaction {
   /// Time this emoji has been used to react

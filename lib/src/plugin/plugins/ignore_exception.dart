@@ -1,9 +1,9 @@
 import 'dart:isolate';
 
 import 'package:logging/logging.dart';
-import 'package:nyxx/src/internal/exceptions/unrecoverable_nyxx_error.dart';
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/plugin/plugin.dart';
+import 'package:nyxx_self/src/internal/exceptions/unrecoverable_nyxx_error.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/plugin/plugin.dart';
 
 class IgnoreExceptions extends BasePlugin {
   @override

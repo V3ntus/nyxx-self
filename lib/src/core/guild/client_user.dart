@@ -1,7 +1,7 @@
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/user/user.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/attachment_builder.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/user/user.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/attachment_builder.dart';
 
 /// ClientUser is bot's discord account. Allows to change bot's presence.
 abstract class IClientUser implements IUser {

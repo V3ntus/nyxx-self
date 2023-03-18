@@ -1,7 +1,7 @@
-import 'package:nyxx/src/core/channel/guild/guild_channel.dart';
-import 'package:nyxx/src/core/guild/role.dart';
-import 'package:nyxx/src/core/user/member.dart';
-import 'package:nyxx/src/utils/utils.dart';
+import 'package:nyxx_self/src/core/channel/guild/guild_channel.dart';
+import 'package:nyxx_self/src/core/guild/role.dart';
+import 'package:nyxx_self/src/core/user/member.dart';
+import 'package:nyxx_self/src/utils/utils.dart';
 
 /// Util function for manipulating permissions
 class PermissionsUtils {

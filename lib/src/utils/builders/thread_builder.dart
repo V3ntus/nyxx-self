@@ -1,6 +1,6 @@
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/enum.dart';
-import 'package:nyxx/src/utils/builders/builder.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/enum.dart';
+import 'package:nyxx_self/src/utils/builders/builder.dart';
 
 class ThreadBuilder extends Builder {
   /// The name for the thread

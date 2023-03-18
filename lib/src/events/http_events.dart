@@ -1,4 +1,4 @@
-import 'package:nyxx/src/internal/http/http_response.dart';
+import 'package:nyxx_self/src/internal/http/http_response.dart';
 
 abstract class IHttpErrorEvent {
   /// The HTTP response.

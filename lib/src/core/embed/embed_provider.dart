@@ -1,4 +1,4 @@
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 abstract class IEmbedProvider {
   /// The embed provider's name.

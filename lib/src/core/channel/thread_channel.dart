@@ -1,20 +1,20 @@
 import 'dart:async';
 
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/core/channel/cacheable_text_channel.dart';
-import 'package:nyxx/src/core/channel/text_channel.dart';
-import 'package:nyxx/src/core/channel/guild/guild_channel.dart';
-import 'package:nyxx/src/core/guild/guild.dart';
-import 'package:nyxx/src/core/message/message.dart';
-import 'package:nyxx/src/core/user/member.dart';
-import 'package:nyxx/src/core/user/user.dart';
-import 'package:nyxx/src/internal/cache/cache.dart';
-import 'package:nyxx/src/internal/cache/cacheable.dart';
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/message_builder.dart';
-import 'package:nyxx/src/utils/builders/thread_builder.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/core/channel/cacheable_text_channel.dart';
+import 'package:nyxx_self/src/core/channel/text_channel.dart';
+import 'package:nyxx_self/src/core/channel/guild/guild_channel.dart';
+import 'package:nyxx_self/src/core/guild/guild.dart';
+import 'package:nyxx_self/src/core/message/message.dart';
+import 'package:nyxx_self/src/core/user/member.dart';
+import 'package:nyxx_self/src/core/user/user.dart';
+import 'package:nyxx_self/src/internal/cache/cache.dart';
+import 'package:nyxx_self/src/internal/cache/cacheable.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/message_builder.dart';
+import 'package:nyxx_self/src/utils/builders/thread_builder.dart';
 
 abstract class IThreadMember implements SnowflakeEntity {
   /// Reference to client

@@ -1,5 +1,5 @@
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/enum.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/enum.dart';
 
 /// Provides values for user status.
 class UserStatus extends IEnum<String> {

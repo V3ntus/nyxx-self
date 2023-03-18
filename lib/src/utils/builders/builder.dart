@@ -1,4 +1,4 @@
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 /// Provides abstraction for builders
 // ignore: one_member_abstracts

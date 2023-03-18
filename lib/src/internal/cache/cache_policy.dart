@@ -1,4 +1,4 @@
-import 'package:nyxx/nyxx.dart';
+import 'package:nyxx_self/nyxx.dart';
 
 /// Predicate which will decide if entity could be cached
 typedef CachePolicyPredicate<T extends SnowflakeEntity> = bool Function(T);

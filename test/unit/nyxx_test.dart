@@ -1,7 +1,7 @@
-import 'package:nyxx/src/client_options.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/internal/exceptions/missing_token_error.dart';
-import 'package:nyxx/src/nyxx.dart';
+import 'package:nyxx_self/src/client_options.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/internal/exceptions/missing_token_error.dart';
+import 'package:nyxx_self/src/nyxx.dart';
 import 'package:test/expect.dart';
 import 'package:test/scaffolding.dart';
 

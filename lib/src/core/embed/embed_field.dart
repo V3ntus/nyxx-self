@@ -1,6 +1,6 @@
-import 'package:nyxx/src/internal/interfaces/convertable.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/embed_field_builder.dart';
+import 'package:nyxx_self/src/internal/interfaces/convertable.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/embed_field_builder.dart';
 
 abstract class IEmbedField implements Convertable<EmbedFieldBuilder> {
   /// Field name

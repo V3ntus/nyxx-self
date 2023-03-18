@@ -1,22 +1,22 @@
 import 'dart:async';
 
-import 'package:nyxx/src/core/channel/text_channel.dart';
-import 'package:nyxx/src/core/message/message.dart';
-import 'package:nyxx/src/internal/cache/cache.dart';
-import 'package:nyxx/src/internal/exceptions/unknown_enum_value.dart';
-import 'package:nyxx/src/internal/interfaces/mentionable.dart';
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/channel/invite.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/core/channel/guild/activity_types.dart';
-import 'package:nyxx/src/core/channel/guild/guild_channel.dart';
-import 'package:nyxx/src/core/guild/guild.dart';
-import 'package:nyxx/src/internal/cache/cacheable.dart';
-import 'package:nyxx/src/internal/exceptions/invalid_shard_exception.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/message_builder.dart';
-import 'package:nyxx/src/utils/enum.dart';
+import 'package:nyxx_self/src/core/channel/text_channel.dart';
+import 'package:nyxx_self/src/core/message/message.dart';
+import 'package:nyxx_self/src/internal/cache/cache.dart';
+import 'package:nyxx_self/src/internal/exceptions/unknown_enum_value.dart';
+import 'package:nyxx_self/src/internal/interfaces/mentionable.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/channel/invite.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/core/channel/guild/activity_types.dart';
+import 'package:nyxx_self/src/core/channel/guild/guild_channel.dart';
+import 'package:nyxx_self/src/core/guild/guild.dart';
+import 'package:nyxx_self/src/internal/cache/cacheable.dart';
+import 'package:nyxx_self/src/internal/exceptions/invalid_shard_exception.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/message_builder.dart';
+import 'package:nyxx_self/src/utils/enum.dart';
 
 enum VideoQualityMode {
   auto(1),

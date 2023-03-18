@@ -1,20 +1,20 @@
-import 'package:nyxx/src/core/audit_logs/audit_log_entry.dart';
-import 'package:nyxx/src/core/channel/guild/text_guild_channel.dart';
-import 'package:nyxx/src/core/channel/text_channel.dart';
-import 'package:nyxx/src/core/guild/auto_moderation.dart';
-import 'package:nyxx/src/core/guild/guild.dart';
-import 'package:nyxx/src/core/guild/role.dart';
-import 'package:nyxx/src/core/guild/scheduled_event.dart';
-import 'package:nyxx/src/core/message/guild_emoji.dart';
-import 'package:nyxx/src/core/message/message.dart';
-import 'package:nyxx/src/core/message/sticker.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/core/user/member.dart';
-import 'package:nyxx/src/core/user/user.dart';
-import 'package:nyxx/src/internal/cache/cacheable.dart';
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/core/audit_logs/audit_log_entry.dart';
+import 'package:nyxx_self/src/core/channel/guild/text_guild_channel.dart';
+import 'package:nyxx_self/src/core/channel/text_channel.dart';
+import 'package:nyxx_self/src/core/guild/auto_moderation.dart';
+import 'package:nyxx_self/src/core/guild/guild.dart';
+import 'package:nyxx_self/src/core/guild/role.dart';
+import 'package:nyxx_self/src/core/guild/scheduled_event.dart';
+import 'package:nyxx_self/src/core/message/guild_emoji.dart';
+import 'package:nyxx_self/src/core/message/message.dart';
+import 'package:nyxx_self/src/core/message/sticker.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/core/user/member.dart';
+import 'package:nyxx_self/src/core/user/user.dart';
+import 'package:nyxx_self/src/internal/cache/cacheable.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 abstract class IGuildCreateEvent {
   /// The guild created.

@@ -1,7 +1,7 @@
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/internal/http/http_route.dart';
-import 'package:nyxx/src/internal/constants.dart';
-import 'package:nyxx/src/utils/utils.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/internal/http/http_route.dart';
+import 'package:nyxx_self/src/internal/constants.dart';
+import 'package:nyxx_self/src/utils/utils.dart';
 
 /// All known routes for Discord's CDN endpoints.
 /// Theses are used internally by specific classes; however it's possible to use

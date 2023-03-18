@@ -1,10 +1,10 @@
-import 'package:nyxx/src/core/discord_color.dart';
-import 'package:nyxx/src/internal/exceptions/embed_builder_argument_exception.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/builder.dart';
-import 'package:nyxx/src/utils/builders/embed_author_builder.dart';
-import 'package:nyxx/src/utils/builders/embed_field_builder.dart';
-import 'package:nyxx/src/utils/builders/embed_footer_builder.dart';
+import 'package:nyxx_self/src/core/discord_color.dart';
+import 'package:nyxx_self/src/internal/exceptions/embed_builder_argument_exception.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/builder.dart';
+import 'package:nyxx_self/src/utils/builders/embed_author_builder.dart';
+import 'package:nyxx_self/src/utils/builders/embed_field_builder.dart';
+import 'package:nyxx_self/src/utils/builders/embed_footer_builder.dart';
 
 /// Builds up embed object.
 class EmbedBuilder extends Builder {

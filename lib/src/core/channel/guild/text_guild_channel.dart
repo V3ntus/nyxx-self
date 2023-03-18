@@ -1,21 +1,21 @@
 import 'dart:async';
 
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/core/channel/text_channel.dart';
-import 'package:nyxx/src/core/channel/thread_channel.dart';
-import 'package:nyxx/src/core/channel/thread_preview_channel.dart';
-import 'package:nyxx/src/core/channel/guild/guild_channel.dart';
-import 'package:nyxx/src/core/guild/webhook.dart';
-import 'package:nyxx/src/core/message/message.dart';
-import 'package:nyxx/src/internal/cache/cache.dart';
-import 'package:nyxx/src/internal/interfaces/mentionable.dart';
-import 'package:nyxx/src/internal/response_wrapper/thread_list_result_wrapper.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/attachment_builder.dart';
-import 'package:nyxx/src/utils/builders/message_builder.dart';
-import 'package:nyxx/src/utils/builders/thread_builder.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/core/channel/text_channel.dart';
+import 'package:nyxx_self/src/core/channel/thread_channel.dart';
+import 'package:nyxx_self/src/core/channel/thread_preview_channel.dart';
+import 'package:nyxx_self/src/core/channel/guild/guild_channel.dart';
+import 'package:nyxx_self/src/core/guild/webhook.dart';
+import 'package:nyxx_self/src/core/message/message.dart';
+import 'package:nyxx_self/src/internal/cache/cache.dart';
+import 'package:nyxx_self/src/internal/interfaces/mentionable.dart';
+import 'package:nyxx_self/src/internal/response_wrapper/thread_list_result_wrapper.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/attachment_builder.dart';
+import 'package:nyxx_self/src/utils/builders/message_builder.dart';
+import 'package:nyxx_self/src/utils/builders/thread_builder.dart';
 
 abstract class ITextGuildChannel implements IGuildChannel, ITextChannel, Mentionable {
   /// The channel's topic.

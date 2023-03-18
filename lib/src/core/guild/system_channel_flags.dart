@@ -1,4 +1,4 @@
-import 'package:nyxx/src/utils/enum.dart';
+import 'package:nyxx_self/src/utils/enum.dart';
 
 class SystemChannelFlags extends IEnum<int> {
   static const suppressJoinNotifications = SystemChannelFlags._create(1 << 0);

@@ -1,6 +1,6 @@
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/voice/voice_state.dart';
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/voice/voice_state.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 abstract class IVoiceStateUpdateEvent {
   /// Used to represent a user's voice connection status.

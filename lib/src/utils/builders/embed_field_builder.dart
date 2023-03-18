@@ -1,6 +1,6 @@
-import 'package:nyxx/src/internal/exceptions/embed_builder_argument_exception.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/builder.dart';
+import 'package:nyxx_self/src/internal/exceptions/embed_builder_argument_exception.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/builder.dart';
 
 /// Builder for embed Field.
 class EmbedFieldBuilder extends Builder {

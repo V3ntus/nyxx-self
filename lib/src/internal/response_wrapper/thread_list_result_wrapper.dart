@@ -1,7 +1,7 @@
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/channel/thread_channel.dart';
-import 'package:nyxx/src/internal/cache/cacheable.dart';
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/channel/thread_channel.dart';
+import 'package:nyxx_self/src/internal/cache/cacheable.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 abstract class IThreadListResultWrapper {
   /// List of threads

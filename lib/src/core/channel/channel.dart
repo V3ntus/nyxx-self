@@ -1,16 +1,16 @@
-import 'package:nyxx/src/core/channel/guild/forum/forum_channel.dart';
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/core/channel/dm_channel.dart';
-import 'package:nyxx/src/core/channel/thread_channel.dart';
-import 'package:nyxx/src/core/channel/guild/category_guild_channel.dart';
-import 'package:nyxx/src/core/channel/guild/guild_channel.dart';
-import 'package:nyxx/src/core/channel/guild/text_guild_channel.dart';
-import 'package:nyxx/src/core/channel/guild/voice_channel.dart';
-import 'package:nyxx/src/internal/interfaces/disposable.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/enum.dart';
+import 'package:nyxx_self/src/core/channel/guild/forum/forum_channel.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/core/channel/dm_channel.dart';
+import 'package:nyxx_self/src/core/channel/thread_channel.dart';
+import 'package:nyxx_self/src/core/channel/guild/category_guild_channel.dart';
+import 'package:nyxx_self/src/core/channel/guild/guild_channel.dart';
+import 'package:nyxx_self/src/core/channel/guild/text_guild_channel.dart';
+import 'package:nyxx_self/src/core/channel/guild/voice_channel.dart';
+import 'package:nyxx_self/src/internal/interfaces/disposable.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/enum.dart';
 
 abstract class IChannel implements SnowflakeEntity, Disposable {
   /// Reference to client

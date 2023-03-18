@@ -1,12 +1,12 @@
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/channel/cacheable_text_channel.dart';
-import 'package:nyxx/src/core/channel/channel.dart';
-import 'package:nyxx/src/core/channel/text_channel.dart';
-import 'package:nyxx/src/core/channel/guild/voice_channel.dart';
-import 'package:nyxx/src/core/guild/guild.dart';
-import 'package:nyxx/src/internal/cache/cacheable.dart';
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/channel/cacheable_text_channel.dart';
+import 'package:nyxx_self/src/core/channel/channel.dart';
+import 'package:nyxx_self/src/core/channel/text_channel.dart';
+import 'package:nyxx_self/src/core/channel/guild/voice_channel.dart';
+import 'package:nyxx_self/src/core/guild/guild.dart';
+import 'package:nyxx_self/src/internal/cache/cacheable.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 abstract class IChannelCreateEvent {
   /// The channel that was created, either a [GuildChannel] or [DMChannel]

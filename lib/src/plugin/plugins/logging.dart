@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:logging/logging.dart';
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/plugin/plugin.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/plugin/plugin.dart';
 
 class Logging extends BasePlugin {
   final Level stderrLevel;

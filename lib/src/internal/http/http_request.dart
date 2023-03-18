@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import 'package:nyxx/src/internal/constants.dart';
-import 'package:nyxx/src/internal/http/http_route.dart';
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/internal/constants.dart';
+import 'package:nyxx_self/src/internal/http/http_route.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 String _genSuperProps(Object obj) {
   return base64Encode(

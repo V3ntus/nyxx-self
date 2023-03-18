@@ -1,6 +1,6 @@
-import 'package:nyxx/nyxx.dart';
-import 'package:nyxx/src/core/guild/role.dart';
-import 'package:nyxx/src/core/permissions/permissions.dart';
+import 'package:nyxx_self/nyxx.dart';
+import 'package:nyxx_self/src/core/guild/role.dart';
+import 'package:nyxx_self/src/core/permissions/permissions.dart';
 
 /// Set of permissions ints
 class _PermissionsSet extends Builder {

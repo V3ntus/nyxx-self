@@ -2,17 +2,17 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
-import 'package:nyxx/src/core/allowed_mentions.dart';
-import 'package:nyxx/src/core/message/message.dart';
-import 'package:nyxx/src/core/message/message_time_stamp.dart';
-import 'package:nyxx/src/internal/interfaces/send.dart';
-import 'package:nyxx/src/internal/interfaces/mentionable.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/builder.dart';
-import 'package:nyxx/src/utils/enum.dart';
-import 'package:nyxx/src/utils/builders/attachment_builder.dart';
-import 'package:nyxx/src/utils/builders/embed_builder.dart';
-import 'package:nyxx/src/utils/builders/reply_builder.dart';
+import 'package:nyxx_self/src/core/allowed_mentions.dart';
+import 'package:nyxx_self/src/core/message/message.dart';
+import 'package:nyxx_self/src/core/message/message_time_stamp.dart';
+import 'package:nyxx_self/src/internal/interfaces/send.dart';
+import 'package:nyxx_self/src/internal/interfaces/mentionable.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/builder.dart';
+import 'package:nyxx_self/src/utils/enum.dart';
+import 'package:nyxx_self/src/utils/builders/attachment_builder.dart';
+import 'package:nyxx_self/src/utils/builders/embed_builder.dart';
+import 'package:nyxx_self/src/utils/builders/reply_builder.dart';
 
 class MessageFlagBuilder implements Builder {
   bool suppressNotifications = false;

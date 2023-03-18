@@ -1,7 +1,7 @@
-import 'package:nyxx/src/core/permissions/permissions_constants.dart';
-import 'package:nyxx/src/internal/interfaces/convertable.dart';
-import 'package:nyxx/src/utils/builders/permissions_builder.dart';
-import 'package:nyxx/src/utils/permissions.dart';
+import 'package:nyxx_self/src/core/permissions/permissions_constants.dart';
+import 'package:nyxx_self/src/internal/interfaces/convertable.dart';
+import 'package:nyxx_self/src/utils/builders/permissions_builder.dart';
+import 'package:nyxx_self/src/utils/permissions.dart';
 
 abstract class IPermissions implements Convertable<PermissionsBuilder> {
   /// The raw permission code.

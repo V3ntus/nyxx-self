@@ -1,15 +1,15 @@
-import 'package:nyxx/src/core/channel/channel.dart';
-import 'package:nyxx/src/core/channel/guild/forum/forum_channel.dart';
-import 'package:nyxx/src/core/channel/guild/voice_channel.dart';
-import 'package:nyxx/src/core/message/emoji.dart';
-import 'package:nyxx/src/core/message/guild_emoji.dart';
-import 'package:nyxx/src/core/message/unicode_emoji.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/builder.dart';
-import 'package:nyxx/src/utils/builders/forum_thread_builder.dart';
-import 'package:nyxx/src/utils/builders/permissions_builder.dart';
+import 'package:nyxx_self/src/core/channel/channel.dart';
+import 'package:nyxx_self/src/core/channel/guild/forum/forum_channel.dart';
+import 'package:nyxx_self/src/core/channel/guild/voice_channel.dart';
+import 'package:nyxx_self/src/core/message/emoji.dart';
+import 'package:nyxx_self/src/core/message/guild_emoji.dart';
+import 'package:nyxx_self/src/core/message/unicode_emoji.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/builder.dart';
+import 'package:nyxx_self/src/utils/builders/forum_thread_builder.dart';
+import 'package:nyxx_self/src/utils/builders/permissions_builder.dart';
 
 /// Builder for creating mini channel instance
 abstract class ChannelBuilder implements Builder {

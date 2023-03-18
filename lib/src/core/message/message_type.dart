@@ -1,4 +1,4 @@
-import 'package:nyxx/src/utils/enum.dart';
+import 'package:nyxx_self/src/utils/enum.dart';
 
 /// Represents messgae type
 class MessageType extends IEnum<int> {

@@ -1,8 +1,8 @@
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/internal/interfaces/convertable.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/attachment_builder.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/internal/interfaces/convertable.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/attachment_builder.dart';
 
 abstract class IAttachment implements SnowflakeEntity, Convertable<AttachmentMetadataBuilder> {
   /// The attachment's filename.

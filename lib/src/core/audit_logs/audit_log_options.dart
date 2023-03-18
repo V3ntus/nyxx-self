@@ -1,4 +1,4 @@
-import 'package:nyxx/nyxx.dart';
+import 'package:nyxx_self/nyxx.dart';
 
 /// Additional info for certain action types
 ///

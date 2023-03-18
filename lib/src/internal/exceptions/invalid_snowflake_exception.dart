@@ -1,4 +1,4 @@
-import 'package:nyxx/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
 
 /// Thrown when cannot convert provided data to [Snowflake]
 class InvalidSnowflakeException implements Exception {

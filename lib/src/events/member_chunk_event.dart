@@ -1,9 +1,9 @@
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/guild/guild.dart';
-import 'package:nyxx/src/core/user/member.dart';
-import 'package:nyxx/src/internal/cache/cacheable.dart';
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/guild/guild.dart';
+import 'package:nyxx_self/src/core/user/member.dart';
+import 'package:nyxx_self/src/internal/cache/cacheable.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 /// Sent in response to `GUILD_REQUENT_MEMBERS` websocket command.
 /// You can use the `chunk_index` and `chunk_count` to calculate how many chunks are left for your request.

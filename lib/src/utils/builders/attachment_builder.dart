@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
-import 'package:nyxx/nyxx.dart';
+import 'package:nyxx_self/nyxx.dart';
 import 'package:path/path.dart' as path_utils;
 
 class AttachmentMetadataBuilder implements Builder {

@@ -1,7 +1,7 @@
-import 'package:nyxx/src/core/guild/status.dart';
-import 'package:nyxx/src/core/user/presence.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/builder.dart';
+import 'package:nyxx_self/src/core/guild/status.dart';
+import 'package:nyxx_self/src/core/user/presence.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/builder.dart';
 
 /// Allows to change status and presence of bot
 class ActivityBuilder implements Builder {

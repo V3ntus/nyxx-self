@@ -1,4 +1,4 @@
-import 'package:nyxx/src/core/message/emoji.dart';
+import 'package:nyxx_self/src/core/message/emoji.dart';
 
 abstract class IUnicodeEmoji implements IEmoji {
   /// Codepoint for emoji

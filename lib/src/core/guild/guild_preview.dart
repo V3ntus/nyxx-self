@@ -1,9 +1,9 @@
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/core/guild/guild_feature.dart';
-import 'package:nyxx/src/core/message/guild_emoji.dart';
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/core/guild/guild_feature.dart';
+import 'package:nyxx_self/src/core/message/guild_emoji.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 abstract class IGuildPreview implements SnowflakeEntity {
   /// Reference to client

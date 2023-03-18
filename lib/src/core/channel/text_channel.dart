@@ -1,8 +1,8 @@
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/channel/channel.dart';
-import 'package:nyxx/src/core/message/message.dart';
-import 'package:nyxx/src/internal/interfaces/send.dart';
-import 'package:nyxx/src/utils/builders/message_builder.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/channel/channel.dart';
+import 'package:nyxx_self/src/core/message/message.dart';
+import 'package:nyxx_self/src/internal/interfaces/send.dart';
+import 'package:nyxx_self/src/utils/builders/message_builder.dart';
 
 abstract class ITextChannel implements IChannel, ISend {
   /// File upload limit for channel in bytes.

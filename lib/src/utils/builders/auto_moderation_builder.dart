@@ -1,7 +1,7 @@
-import 'package:nyxx/src/core/guild/auto_moderation.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/builder.dart';
+import 'package:nyxx_self/src/core/guild/auto_moderation.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/builder.dart';
 
 class AutoModerationRuleBuilder implements Builder {
   /// The name of the rule.

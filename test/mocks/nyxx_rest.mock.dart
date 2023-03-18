@@ -1,9 +1,9 @@
 import 'package:mockito/mockito.dart';
-import 'package:nyxx/nyxx.dart';
-import 'package:nyxx/src/internal/cdn_http_endpoints.dart';
-import 'package:nyxx/src/internal/event_controller.dart';
-import 'package:nyxx/src/internal/http/http_handler.dart';
-import 'package:nyxx/src/internal/http_endpoints.dart';
+import 'package:nyxx_self/nyxx.dart';
+import 'package:nyxx_self/src/internal/cdn_http_endpoints.dart';
+import 'package:nyxx_self/src/internal/event_controller.dart';
+import 'package:nyxx_self/src/internal/http/http_handler.dart';
+import 'package:nyxx_self/src/internal/http_endpoints.dart';
 
 class NyxxRestEmptyMock extends Fake implements INyxxRest {
   @override

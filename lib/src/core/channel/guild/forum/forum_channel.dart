@@ -1,18 +1,18 @@
-import 'package:nyxx/src/core/channel/guild/forum/forum_channel_tags.dart';
-import 'package:nyxx/src/core/channel/guild/forum/forum_tag.dart';
-import 'package:nyxx/src/core/channel/guild/guild_channel.dart';
-import 'package:nyxx/src/core/channel/thread_channel.dart';
-import 'package:nyxx/src/core/channel/thread_preview_channel.dart';
-import 'package:nyxx/src/core/message/emoji.dart';
-import 'package:nyxx/src/core/message/guild_emoji.dart';
-import 'package:nyxx/src/core/message/unicode_emoji.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/internal/exceptions/unknown_enum_value.dart';
-import 'package:nyxx/src/internal/interfaces/mentionable.dart';
-import 'package:nyxx/src/internal/response_wrapper/thread_list_result_wrapper.dart';
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/forum_thread_builder.dart';
+import 'package:nyxx_self/src/core/channel/guild/forum/forum_channel_tags.dart';
+import 'package:nyxx_self/src/core/channel/guild/forum/forum_tag.dart';
+import 'package:nyxx_self/src/core/channel/guild/guild_channel.dart';
+import 'package:nyxx_self/src/core/channel/thread_channel.dart';
+import 'package:nyxx_self/src/core/channel/thread_preview_channel.dart';
+import 'package:nyxx_self/src/core/message/emoji.dart';
+import 'package:nyxx_self/src/core/message/guild_emoji.dart';
+import 'package:nyxx_self/src/core/message/unicode_emoji.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/internal/exceptions/unknown_enum_value.dart';
+import 'package:nyxx_self/src/internal/interfaces/mentionable.dart';
+import 'package:nyxx_self/src/internal/response_wrapper/thread_list_result_wrapper.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/forum_thread_builder.dart';
 
 enum ForumSortOrder {
   /// Sort forum posts by activity

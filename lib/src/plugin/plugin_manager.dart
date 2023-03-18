@@ -1,4 +1,4 @@
-import 'package:nyxx/nyxx.dart';
+import 'package:nyxx_self/nyxx.dart';
 
 abstract class IPluginManager {
   Iterable<BasePlugin> get plugins;

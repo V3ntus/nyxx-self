@@ -1,20 +1,20 @@
 import 'dart:async';
 
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/core/guild/guild.dart';
-import 'package:nyxx/src/core/guild/role.dart';
-import 'package:nyxx/src/core/permissions/permissions.dart';
-import 'package:nyxx/src/core/permissions/permissions_constants.dart';
-import 'package:nyxx/src/core/user/user.dart';
-import 'package:nyxx/src/core/voice/voice_state.dart';
-import 'package:nyxx/src/internal/cache/cacheable.dart';
-import 'package:nyxx/src/internal/interfaces/mentionable.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/member_builder.dart';
-import 'package:nyxx/src/utils/permissions.dart';
-import 'package:nyxx/src/core/user/member_flags.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/core/guild/guild.dart';
+import 'package:nyxx_self/src/core/guild/role.dart';
+import 'package:nyxx_self/src/core/permissions/permissions.dart';
+import 'package:nyxx_self/src/core/permissions/permissions_constants.dart';
+import 'package:nyxx_self/src/core/user/user.dart';
+import 'package:nyxx_self/src/core/voice/voice_state.dart';
+import 'package:nyxx_self/src/internal/cache/cacheable.dart';
+import 'package:nyxx_self/src/internal/interfaces/mentionable.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/member_builder.dart';
+import 'package:nyxx_self/src/utils/permissions.dart';
+import 'package:nyxx_self/src/core/user/member_flags.dart';
 
 abstract class IMember implements SnowflakeEntity, Mentionable {
   /// Reference to client

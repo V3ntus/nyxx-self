@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 
-import 'package:nyxx/src/internal/http/http_request.dart';
+import 'package:nyxx_self/src/internal/http/http_request.dart';
 
 class HttpBucket {
   static const String xRateLimitBucket = "x-ratelimit-bucket";

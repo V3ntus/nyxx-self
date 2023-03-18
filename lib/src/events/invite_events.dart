@@ -1,10 +1,10 @@
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/channel/invite.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/channel/guild/guild_channel.dart';
-import 'package:nyxx/src/core/guild/guild.dart';
-import 'package:nyxx/src/internal/cache/cacheable.dart';
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/channel/invite.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/channel/guild/guild_channel.dart';
+import 'package:nyxx_self/src/core/guild/guild.dart';
+import 'package:nyxx_self/src/internal/cache/cacheable.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 abstract class IInviteCreatedEvent {
   /// [IInvite] object of created invite

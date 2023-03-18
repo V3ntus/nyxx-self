@@ -1,20 +1,20 @@
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/channel/invite.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/core/channel/channel.dart';
-import 'package:nyxx/src/core/guild/guild.dart';
-import 'package:nyxx/src/core/guild/role.dart';
-import 'package:nyxx/src/core/permissions/permission_overrides.dart';
-import 'package:nyxx/src/core/permissions/permissions.dart';
-import 'package:nyxx/src/core/permissions/permissions_constants.dart';
-import 'package:nyxx/src/core/user/member.dart';
-import 'package:nyxx/src/internal/cache/cacheable.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/channel_builder.dart';
-import 'package:nyxx/src/utils/builders/permissions_builder.dart';
-import 'package:nyxx/src/utils/permissions.dart';
-import 'package:nyxx/src/utils/utils.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/channel/invite.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/core/channel/channel.dart';
+import 'package:nyxx_self/src/core/guild/guild.dart';
+import 'package:nyxx_self/src/core/guild/role.dart';
+import 'package:nyxx_self/src/core/permissions/permission_overrides.dart';
+import 'package:nyxx_self/src/core/permissions/permissions.dart';
+import 'package:nyxx_self/src/core/permissions/permissions_constants.dart';
+import 'package:nyxx_self/src/core/user/member.dart';
+import 'package:nyxx_self/src/internal/cache/cacheable.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/channel_builder.dart';
+import 'package:nyxx_self/src/utils/builders/permissions_builder.dart';
+import 'package:nyxx_self/src/utils/permissions.dart';
+import 'package:nyxx_self/src/utils/utils.dart';
 
 abstract class IGuildChannel implements IMinimalGuildChannel {
   /// Relative position of channel in context of channel list

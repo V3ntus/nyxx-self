@@ -1,12 +1,12 @@
-import 'package:nyxx/src/core/audit_logs/audit_log_entry.dart';
-import 'package:nyxx/src/core/channel/thread_channel.dart';
-import 'package:nyxx/src/core/guild/auto_moderation.dart';
-import 'package:nyxx/src/core/guild/scheduled_event.dart';
-import 'package:nyxx/src/core/guild/webhook.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/user/user.dart';
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/core/audit_logs/audit_log_entry.dart';
+import 'package:nyxx_self/src/core/channel/thread_channel.dart';
+import 'package:nyxx_self/src/core/guild/auto_moderation.dart';
+import 'package:nyxx_self/src/core/guild/scheduled_event.dart';
+import 'package:nyxx_self/src/core/guild/webhook.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/user/user.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 abstract class IAuditLog {
   /// Map of webhooks found in the audit log.

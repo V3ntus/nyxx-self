@@ -1,4 +1,4 @@
-import "package:nyxx/nyxx.dart";
+import "package:nyxx_self/nyxx.dart";
 
 DiscordColor getColorForUserFromMessage(IMessage message) {
   if (message.guild != null) {

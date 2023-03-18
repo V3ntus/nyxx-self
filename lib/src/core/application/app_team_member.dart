@@ -1,6 +1,6 @@
-import 'package:nyxx/src/core/application/app_team_user.dart';
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/core/application/app_team_user.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 /// Represent membership of user in app team
 abstract class IAppTeamMember {

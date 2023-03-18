@@ -1,13 +1,13 @@
-import 'package:nyxx/src/core/discord_color.dart';
-import 'package:nyxx/src/core/embed/embed_author.dart';
-import 'package:nyxx/src/core/embed/embed_field.dart';
-import 'package:nyxx/src/core/embed/embed_footer.dart';
-import 'package:nyxx/src/core/embed/embed_provider.dart';
-import 'package:nyxx/src/core/embed/embed_thumbnail.dart';
-import 'package:nyxx/src/core/embed/embed_video.dart';
-import 'package:nyxx/src/internal/interfaces/convertable.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/embed_builder.dart';
+import 'package:nyxx_self/src/core/discord_color.dart';
+import 'package:nyxx_self/src/core/embed/embed_author.dart';
+import 'package:nyxx_self/src/core/embed/embed_field.dart';
+import 'package:nyxx_self/src/core/embed/embed_footer.dart';
+import 'package:nyxx_self/src/core/embed/embed_provider.dart';
+import 'package:nyxx_self/src/core/embed/embed_thumbnail.dart';
+import 'package:nyxx_self/src/core/embed/embed_video.dart';
+import 'package:nyxx_self/src/internal/interfaces/convertable.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/embed_builder.dart';
 
 abstract class IEmbed implements Convertable<EmbedBuilder> {
   /// The embed's title.

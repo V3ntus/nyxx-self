@@ -1,4 +1,4 @@
-import 'package:nyxx/src/utils/enum.dart';
+import 'package:nyxx_self/src/utils/enum.dart';
 
 /// Style of inline timestamp that can be embedded into message
 class TimeStampStyle extends IEnum<String> {

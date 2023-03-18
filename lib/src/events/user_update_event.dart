@@ -1,6 +1,6 @@
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/user/user.dart';
-import 'package:nyxx/src/typedefs.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/user/user.dart';
+import 'package:nyxx_self/src/typedefs.dart';
 
 abstract class IUserUpdateEvent {
   /// User instance after update

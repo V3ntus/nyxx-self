@@ -1,6 +1,6 @@
 //<:Pepega:547759324836003842>
 
-import "package:nyxx/nyxx.dart";
+import "package:nyxx_self/nyxx.dart";
 import 'dart:io';
 
 // Main function

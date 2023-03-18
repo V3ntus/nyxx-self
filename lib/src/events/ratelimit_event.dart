@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 
-import 'package:nyxx/src/internal/http/http_request.dart';
+import 'package:nyxx_self/src/internal/http/http_request.dart';
 
 abstract class IRatelimitEvent {
   /// True if rate limit handler stopped the request

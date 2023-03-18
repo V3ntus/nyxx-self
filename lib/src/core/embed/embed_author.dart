@@ -1,6 +1,6 @@
-import 'package:nyxx/src/internal/interfaces/convertable.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/embed_author_builder.dart';
+import 'package:nyxx_self/src/internal/interfaces/convertable.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/embed_author_builder.dart';
 
 abstract class IEmbedAuthor implements Convertable<EmbedAuthorBuilder> {
   /// Name of embed author

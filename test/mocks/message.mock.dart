@@ -1,6 +1,6 @@
 import 'package:mockito/mockito.dart';
-import 'package:nyxx/nyxx.dart';
-import 'package:nyxx/src/internal/cache/cacheable.dart';
+import 'package:nyxx_self/nyxx.dart';
+import 'package:nyxx_self/src/internal/cache/cacheable.dart';
 
 import 'nyxx_rest.mock.dart';
 

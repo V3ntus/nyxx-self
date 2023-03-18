@@ -1,14 +1,14 @@
 import 'dart:async';
 
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/core/channel/channel.dart';
-import 'package:nyxx/src/core/channel/text_channel.dart';
-import 'package:nyxx/src/core/message/message.dart';
-import 'package:nyxx/src/internal/cache/cacheable.dart';
-import 'package:nyxx/src/internal/interfaces/send.dart';
-import 'package:nyxx/src/utils/builders/message_builder.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/core/channel/channel.dart';
+import 'package:nyxx_self/src/core/channel/text_channel.dart';
+import 'package:nyxx_self/src/core/message/message.dart';
+import 'package:nyxx_self/src/internal/cache/cacheable.dart';
+import 'package:nyxx_self/src/internal/interfaces/send.dart';
+import 'package:nyxx_self/src/utils/builders/message_builder.dart';
 
 abstract class ICacheableTextChannel<T extends IChannel> implements IChannel, ITextChannel, ISend, Cacheable<Snowflake, T> {}
 

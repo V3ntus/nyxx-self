@@ -1,5 +1,5 @@
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/internal/exceptions/invalid_snowflake_exception.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/internal/exceptions/invalid_snowflake_exception.dart';
 
 /// [Snowflake] represents id system used by Discord.
 /// [id] property is actual id of entity which holds [Snowflake].

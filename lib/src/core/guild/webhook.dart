@@ -1,18 +1,18 @@
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/core/channel/cacheable_text_channel.dart';
-import 'package:nyxx/src/core/channel/channel.dart';
-import 'package:nyxx/src/core/channel/guild/text_guild_channel.dart';
-import 'package:nyxx/src/core/guild/guild.dart';
-import 'package:nyxx/src/core/message/message.dart';
-import 'package:nyxx/src/core/user/user.dart';
-import 'package:nyxx/src/internal/cache/cacheable.dart';
-import 'package:nyxx/src/internal/interfaces/message_author.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/enum.dart';
-import 'package:nyxx/src/utils/builders/attachment_builder.dart';
-import 'package:nyxx/src/utils/builders/message_builder.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/core/channel/cacheable_text_channel.dart';
+import 'package:nyxx_self/src/core/channel/channel.dart';
+import 'package:nyxx_self/src/core/channel/guild/text_guild_channel.dart';
+import 'package:nyxx_self/src/core/guild/guild.dart';
+import 'package:nyxx_self/src/core/message/message.dart';
+import 'package:nyxx_self/src/core/user/user.dart';
+import 'package:nyxx_self/src/internal/cache/cacheable.dart';
+import 'package:nyxx_self/src/internal/interfaces/message_author.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/enum.dart';
+import 'package:nyxx_self/src/utils/builders/attachment_builder.dart';
+import 'package:nyxx_self/src/utils/builders/message_builder.dart';
 
 /// Type of webhook. Either [incoming] if it its normal webhook executable with token,
 /// or [channelFollower] if its discord internal webhook

@@ -1,12 +1,12 @@
-import 'package:nyxx/src/core/channel/guild/forum/forum_tag.dart';
-import 'package:nyxx/src/core/message/emoji.dart';
-import 'package:nyxx/src/core/message/guild_emoji.dart';
-import 'package:nyxx/src/core/message/unicode_emoji.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/builder.dart';
-import 'package:nyxx/src/utils/builders/message_builder.dart';
-import 'package:nyxx/src/utils/builders/thread_builder.dart';
+import 'package:nyxx_self/src/core/channel/guild/forum/forum_tag.dart';
+import 'package:nyxx_self/src/core/message/emoji.dart';
+import 'package:nyxx_self/src/core/message/guild_emoji.dart';
+import 'package:nyxx_self/src/core/message/unicode_emoji.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/builder.dart';
+import 'package:nyxx_self/src/utils/builders/message_builder.dart';
+import 'package:nyxx_self/src/utils/builders/thread_builder.dart';
 
 class ForumTagBuilder {
   Snowflake id;

@@ -1,15 +1,15 @@
 import 'dart:async';
 
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/core/channel/channel.dart';
-import 'package:nyxx/src/core/channel/text_channel.dart';
-import 'package:nyxx/src/core/guild/guild.dart';
-import 'package:nyxx/src/core/guild/role.dart';
-import 'package:nyxx/src/core/message/message.dart';
-import 'package:nyxx/src/core/user/member.dart';
-import 'package:nyxx/src/core/user/user.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/core/channel/channel.dart';
+import 'package:nyxx_self/src/core/channel/text_channel.dart';
+import 'package:nyxx_self/src/core/guild/guild.dart';
+import 'package:nyxx_self/src/core/guild/role.dart';
+import 'package:nyxx_self/src/core/message/message.dart';
+import 'package:nyxx_self/src/core/user/member.dart';
+import 'package:nyxx_self/src/core/user/user.dart';
 
 /// Wraps [SnowflakeEntity] that can be taken from cache or optionally downloaded from API.
 /// Always provides [id] of entity. `download()` method tries to get entity from API and returns it upon success or

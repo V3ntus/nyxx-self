@@ -1,9 +1,9 @@
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/core/permissions/permissions.dart';
-import 'package:nyxx/src/internal/interfaces/convertable.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/permissions_builder.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/core/permissions/permissions.dart';
+import 'package:nyxx_self/src/internal/interfaces/convertable.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/permissions_builder.dart';
 
 abstract class IPermissionsOverrides implements SnowflakeEntity, Convertable<PermissionOverrideBuilder> {
   /// Type of entity. Either 0 (role) or 1 (member)

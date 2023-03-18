@@ -1,11 +1,11 @@
 import 'package:logging/logging.dart';
-import 'package:nyxx/nyxx.dart';
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/events/ready_event.dart';
-import 'package:nyxx/src/internal/event_controller.dart';
-import 'package:nyxx/src/internal/http_endpoints.dart';
-import 'package:nyxx/src/internal/http/http_response.dart';
-import 'package:nyxx/src/internal/shard/shard_manager.dart';
+import 'package:nyxx_self/nyxx.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/events/ready_event.dart';
+import 'package:nyxx_self/src/internal/event_controller.dart';
+import 'package:nyxx_self/src/internal/http_endpoints.dart';
+import 'package:nyxx_self/src/internal/http/http_response.dart';
+import 'package:nyxx_self/src/internal/shard/shard_manager.dart';
 
 /// The WS manager for the client.
 class ConnectionManager {

@@ -1,4 +1,4 @@
-import 'package:nyxx/src/utils/enum.dart';
+import 'package:nyxx_self/src/utils/enum.dart';
 
 // All colors got from DiscordColor class from DSharp+.
 // https://github.com/DSharpPlus/DSharpPlus/blob/a2f6eca7f5f675e83748b20b957ae8bdb8fd0cab/DSharpPlus/Entities/DiscordColor.Colors.cs

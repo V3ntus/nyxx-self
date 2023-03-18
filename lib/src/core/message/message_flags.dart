@@ -1,4 +1,4 @@
-import 'package:nyxx/src/utils/permissions.dart';
+import 'package:nyxx_self/src/utils/permissions.dart';
 
 /// Extra features of the message
 class MessageFlags {

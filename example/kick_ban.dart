@@ -1,4 +1,4 @@
-import "package:nyxx/nyxx.dart";
+import "package:nyxx_self/nyxx.dart";
 
 // Returns user that can be banned from message. Parses mention or raw id from message
 SnowflakeEntity getUserToKickOrBan(IMessage message) {

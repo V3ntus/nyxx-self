@@ -1,4 +1,4 @@
-import 'package:nyxx/src/utils/enum.dart';
+import 'package:nyxx_self/src/utils/enum.dart';
 
 class GuildNsfwLevel extends IEnum<int> {
   static const GuildNsfwLevel def = GuildNsfwLevel._create(0);

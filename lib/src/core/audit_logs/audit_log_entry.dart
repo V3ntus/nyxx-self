@@ -1,12 +1,12 @@
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/core/audit_logs/audit_log_change.dart';
-import 'package:nyxx/src/core/user/user.dart';
-import 'package:nyxx/src/internal/cache/cacheable.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/enum.dart';
-import 'package:nyxx/src/core/audit_logs/audit_log_options.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/core/audit_logs/audit_log_change.dart';
+import 'package:nyxx_self/src/core/user/user.dart';
+import 'package:nyxx_self/src/internal/cache/cacheable.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/enum.dart';
+import 'package:nyxx_self/src/core/audit_logs/audit_log_options.dart';
 
 abstract class IAuditLogEntry implements SnowflakeEntity {
   /// Id of the affected entity (webhook, user, role, etc.)

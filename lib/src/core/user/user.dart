@@ -1,20 +1,20 @@
 import 'dart:async';
 
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/core/discord_color.dart';
-import 'package:nyxx/src/core/snowflake.dart';
-import 'package:nyxx/src/core/snowflake_entity.dart';
-import 'package:nyxx/src/core/channel/dm_channel.dart';
-import 'package:nyxx/src/core/guild/status.dart';
-import 'package:nyxx/src/core/message/message.dart';
-import 'package:nyxx/src/core/user/nitro_type.dart';
-import 'package:nyxx/src/core/user/presence.dart';
-import 'package:nyxx/src/core/user/user_flags.dart';
-import 'package:nyxx/src/internal/interfaces/message_author.dart';
-import 'package:nyxx/src/internal/interfaces/send.dart';
-import 'package:nyxx/src/internal/interfaces/mentionable.dart';
-import 'package:nyxx/src/typedefs.dart';
-import 'package:nyxx/src/utils/builders/message_builder.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/core/discord_color.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/snowflake_entity.dart';
+import 'package:nyxx_self/src/core/channel/dm_channel.dart';
+import 'package:nyxx_self/src/core/guild/status.dart';
+import 'package:nyxx_self/src/core/message/message.dart';
+import 'package:nyxx_self/src/core/user/nitro_type.dart';
+import 'package:nyxx_self/src/core/user/presence.dart';
+import 'package:nyxx_self/src/core/user/user_flags.dart';
+import 'package:nyxx_self/src/internal/interfaces/message_author.dart';
+import 'package:nyxx_self/src/internal/interfaces/send.dart';
+import 'package:nyxx_self/src/internal/interfaces/mentionable.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/message_builder.dart';
 
 abstract class IUser implements SnowflakeEntity, ISend, Mentionable, IMessageAuthor {
   /// Reference to client

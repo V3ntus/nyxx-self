@@ -1,24 +1,24 @@
 import 'dart:async';
 
-import 'package:nyxx/src/events/channel_events.dart';
-import 'package:nyxx/src/events/disconnect_event.dart';
-import 'package:nyxx/src/events/guild_events.dart';
-import 'package:nyxx/src/events/http_events.dart';
-import 'package:nyxx/src/events/invite_events.dart';
-import 'package:nyxx/src/events/message_events.dart';
-import 'package:nyxx/src/events/presence_update_event.dart';
-import 'package:nyxx/src/events/ratelimit_event.dart';
-import 'package:nyxx/src/events/ready_event.dart';
-import 'package:nyxx/src/events/thread_create_event.dart';
-import 'package:nyxx/src/events/thread_deleted_event.dart';
-import 'package:nyxx/src/events/thread_list_sync_event.dart';
-import 'package:nyxx/src/events/thread_members_update_event.dart';
-import 'package:nyxx/src/events/typing_event.dart';
-import 'package:nyxx/src/events/user_update_event.dart';
-import 'package:nyxx/src/events/voice_server_update_event.dart';
-import 'package:nyxx/src/events/voice_state_update_event.dart';
-import 'package:nyxx/src/internal/interfaces/disposable.dart';
-import 'package:nyxx/src/nyxx.dart';
+import 'package:nyxx_self/src/events/channel_events.dart';
+import 'package:nyxx_self/src/events/disconnect_event.dart';
+import 'package:nyxx_self/src/events/guild_events.dart';
+import 'package:nyxx_self/src/events/http_events.dart';
+import 'package:nyxx_self/src/events/invite_events.dart';
+import 'package:nyxx_self/src/events/message_events.dart';
+import 'package:nyxx_self/src/events/presence_update_event.dart';
+import 'package:nyxx_self/src/events/ratelimit_event.dart';
+import 'package:nyxx_self/src/events/ready_event.dart';
+import 'package:nyxx_self/src/events/thread_create_event.dart';
+import 'package:nyxx_self/src/events/thread_deleted_event.dart';
+import 'package:nyxx_self/src/events/thread_list_sync_event.dart';
+import 'package:nyxx_self/src/events/thread_members_update_event.dart';
+import 'package:nyxx_self/src/events/typing_event.dart';
+import 'package:nyxx_self/src/events/user_update_event.dart';
+import 'package:nyxx_self/src/events/voice_server_update_event.dart';
+import 'package:nyxx_self/src/events/voice_state_update_event.dart';
+import 'package:nyxx_self/src/internal/interfaces/disposable.dart';
+import 'package:nyxx_self/src/nyxx.dart';
 
 abstract class IRestEventController implements Disposable {
   /// Emitted when a successful HTTP response is received.

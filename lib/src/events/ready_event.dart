@@ -1,4 +1,4 @@
-import 'package:nyxx/src/nyxx.dart';
+import 'package:nyxx_self/src/nyxx.dart';
 
 abstract class IReadyEvent {}
 

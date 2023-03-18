@@ -1,6 +1,6 @@
 import "dart:io";
 
-import "package:nyxx/nyxx.dart";
+import "package:nyxx_self/nyxx.dart";
 
 // Main function
 void main() {
