@@ -910,8 +910,7 @@ class HttpEndpoints implements IHttpEndpoints {
   Future<IProfile> fetchProfile(Snowflake userId, {Snowflake? guildId}) async {
     final response = await executeSafe(BasicRequest(HttpRoute()
       ..users(id: userId.toString())
-      ..profile()
-    ));
+      ..profile()));
 
     final profile = Profile(client, response.jsonBody as RawApiMap);
 
@@ -1485,8 +1484,7 @@ class HttpEndpoints implements IHttpEndpoints {
     ..gateway()
     ..bot()));
 
-  Future<HttpResponse> getMeApplication() => executeSafe(BasicRequest(HttpRoute()
-    ..users(id: "@me")));
+  Future<HttpResponse> getMeApplication() => executeSafe(BasicRequest(HttpRoute()..users(id: "@me")));
 
   @override
   Future<IGuildPreview> fetchGuildPreview(Snowflake guildId) async {

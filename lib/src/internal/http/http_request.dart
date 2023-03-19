@@ -83,13 +83,7 @@ abstract class HttpRequest {
   String get rateLimitId => method + route.routeId;
 
   /// Creates and instance of [HttpRequest]
-  HttpRequest(this.route,
-      {this.method = "GET",
-      this.queryParams,
-      Map<String, String>? headers,
-      this.auditLog,
-      this.globalRateLimit = true,
-      this.auth = true}) {
+  HttpRequest(this.route, {this.method = "GET", this.queryParams, Map<String, String>? headers, this.auditLog, this.globalRateLimit = true, this.auth = true}) {
     uri = Uri.https(Constants.host, Constants.baseUri + route.path);
     this.headers = headers ?? {};
   }
@@ -110,8 +104,7 @@ abstract class HttpRequest {
       "Sec-Fetch-Dest": "empty",
       "Sec-Fetch-Mode": "cors",
       "Sec-Fetch-Site": "same-origin",
-      "User-Agent":
-          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
+      "User-Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
       "X-Discord-Locale": "en-US",
       "X-Debug-Options": "bugReporterEnabled",
       "X-Super-Properties": _genSuperProps({
@@ -146,25 +139,12 @@ class BasicRequest extends HttpRequest {
   final dynamic body;
 
   BasicRequest(HttpRoute route,
-      {String method = "GET",
-      this.body,
-      RawApiMap? queryParams,
-      String? auditLog,
-      Map<String, String>? headers,
-      bool globalRateLimit = true,
-      bool auth = true})
-      : super(route,
-            method: method,
-            queryParams: queryParams,
-            auditLog: auditLog,
-            headers: headers,
-            globalRateLimit: globalRateLimit,
-            auth: auth);
+      {String method = "GET", this.body, RawApiMap? queryParams, String? auditLog, Map<String, String>? headers, bool globalRateLimit = true, bool auth = true})
+      : super(route, method: method, queryParams: queryParams, auditLog: auditLog, headers: headers, globalRateLimit: globalRateLimit, auth: auth);
 
   @override
   Future<http.BaseRequest> prepareRequest(HttpHandler handler) async {
-    final request = http.Request(
-        method, uri.replace(queryParameters: queryParams?.map((key, value) => MapEntry(key, value.toString()))))
+    final request = http.Request(method, uri.replace(queryParameters: queryParams?.map((key, value) => MapEntry(key, value.toString()))))
       ..headers.addAll(await genHeaders(handler));
 
     if (body != null && method != "GET") {
@@ -199,18 +179,11 @@ class MultipartRequest extends HttpRequest {
       String? auditLog,
       bool auth = true,
       bool globalRateLimit = true})
-      : super(route,
-            method: method,
-            queryParams: queryParams,
-            headers: headers,
-            auditLog: auditLog,
-            globalRateLimit: globalRateLimit,
-            auth: auth);
+      : super(route, method: method, queryParams: queryParams, headers: headers, auditLog: auditLog, globalRateLimit: globalRateLimit, auth: auth);
 
   @override
   Future<http.BaseRequest> prepareRequest(HttpHandler handler) async {
-    final request = http.MultipartRequest(
-        method, uri.replace(queryParameters: queryParams?.map((key, value) => MapEntry(key, value.toString()))))
+    final request = http.MultipartRequest(method, uri.replace(queryParameters: queryParams?.map((key, value) => MapEntry(key, value.toString()))))
       ..headers.addAll(await genHeaders(handler));
 
     request.files.addAll(files);

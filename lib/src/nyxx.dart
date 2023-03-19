@@ -292,7 +292,7 @@ abstract class INyxxWebsocket implements INyxxRest {
   /// var user = await client.fetchUser(Snowflake("302359032612651009"));
   /// ```
   Future<IUser> fetchUser(Snowflake userId);
-  
+
   /// Get profile instance with specified user ID and optional guild id.
   /// ```dart
   /// var profile = await client.fetchProfile(
@@ -301,7 +301,7 @@ abstract class INyxxWebsocket implements INyxxRest {
   /// );
   /// ```
   Future<IProfile> fetchProfile(Snowflake userId, {Snowflake? guildId});
-  
+
   /// Gets a webhook by its id and/or token.
   /// If token is supplied authentication is not needed.
   Future<IWebhook> fetchWebhook(Snowflake id, {String token = ""});
