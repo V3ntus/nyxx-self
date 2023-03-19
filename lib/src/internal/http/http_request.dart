@@ -25,8 +25,7 @@ Future<int> _getBuildNumber(HttpHandler handler) async {
     path: "/assets/${assetRegex.allMatches(res.body).toList()[-2]}.js",
   ));
   int buildIndex = assetRes.body.indexOf("buildNumber") + 24;
-  return int.tryParse(assetRes.body.substring(buildIndex, buildIndex + 6)) ??
-      9999;
+  return int.tryParse(assetRes.body.substring(buildIndex, buildIndex + 6)) ?? 9999;
 }
 
 Future<String> _getUserAgent(HttpHandler handler) async {
@@ -105,8 +104,7 @@ abstract class HttpRequest {
       "Origin": "https://discord.com",
       "Pragma": "no-cache",
       "Referer": "https://discord.com/channels/@me",
-      "Sec-CH-UA":
-          '"Google Chrome";v="111", "Chromium";v="111", ";Not A Brand";v="99"',
+      "Sec-CH-UA": '"Google Chrome";v="111", "Chromium";v="111", ";Not A Brand";v="99"',
       "Sec-CH-UA-Mobile": "?0",
       "Sec-CH-UA-Platform": '"Windows"',
       "Sec-Fetch-Dest": "empty",
@@ -166,10 +164,7 @@ class BasicRequest extends HttpRequest {
   @override
   Future<http.BaseRequest> prepareRequest(HttpHandler handler) async {
     final request = http.Request(
-        method,
-        uri.replace(
-            queryParameters: queryParams
-                ?.map((key, value) => MapEntry(key, value.toString()))))
+        method, uri.replace(queryParameters: queryParams?.map((key, value) => MapEntry(key, value.toString()))))
       ..headers.addAll(await genHeaders(handler));
 
     if (body != null && method != "GET") {
@@ -184,8 +179,7 @@ class BasicRequest extends HttpRequest {
     return request;
   }
 
-  Map<String, String> _getJsonContentTypeHeader() =>
-      {"Content-Type": "application/json"};
+  Map<String, String> _getJsonContentTypeHeader() => {"Content-Type": "application/json"};
 }
 
 /// Request with which files will be sent. Cannot contain request body.
@@ -216,10 +210,7 @@ class MultipartRequest extends HttpRequest {
   @override
   Future<http.BaseRequest> prepareRequest(HttpHandler handler) async {
     final request = http.MultipartRequest(
-        method,
-        uri.replace(
-            queryParameters: queryParams
-                ?.map((key, value) => MapEntry(key, value.toString()))))
+        method, uri.replace(queryParameters: queryParams?.map((key, value) => MapEntry(key, value.toString()))))
       ..headers.addAll(await genHeaders(handler));
 
     request.files.addAll(files);
