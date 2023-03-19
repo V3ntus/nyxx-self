@@ -1,15 +1,73 @@
 import 'dart:convert';
+import 'dart:core';
 
 import 'package:http/http.dart' as http;
 
 import 'package:nyxx_self/src/internal/constants.dart';
+import 'package:nyxx_self/src/internal/http/http_handler.dart';
 import 'package:nyxx_self/src/internal/http/http_route.dart';
 import 'package:nyxx_self/src/typedefs.dart';
 
 String _genSuperProps(Object obj) {
-  return base64Encode(
-    utf8.encode(jsonEncode(obj))
-  );
+  return base64Encode(utf8.encode(jsonEncode(obj)));
+}
+
+Future<int> _getBuildNumber(HttpHandler handler) async {
+  RegExp assetRegex = RegExp(r"assets/+([a-z0-9]+\.js)");
+  http.Response res = await handler.httpClient.get(Uri(
+    scheme: "https",
+    host: "discord.com",
+    path: "/login",
+  ));
+  http.Response assetRes = await handler.httpClient.get(Uri(
+    scheme: "https",
+    host: "discord.com",
+    path: "/assets/${assetRegex.allMatches(res.body).toList()[-2]}.js",
+  ));
+  int buildIndex = assetRes.body.indexOf("buildNumber") + 24;
+  return int.tryParse(assetRes.body.substring(buildIndex, buildIndex + 6)) ??
+      9999;
+}
+
+Future<String> _getUserAgent(HttpHandler handler) async {
+  try {
+    http.Response res = await handler.httpClient.get(Uri(
+      scheme: "https",
+      host: "jnrbsn.github.io",
+      path: "/user-agents/user-agents.json",
+    ));
+    String ua = jsonDecode(res.body)[0].toString();
+    return ua;
+  } catch (err) {
+    return "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36";
+  }
+}
+
+/// Returns a list with: user agent, browser version, and build number in order.
+Future<List<dynamic>> _getBrowserInfo(HttpHandler handler) async {
+  String ua;
+  String bv;
+  int bn;
+  for (var i = 0; i < 3; i++) {
+    try {
+      http.Response res = await handler.httpClient.get(Uri(
+        scheme: "https",
+        host: "cordapi.dolfi.es",
+        path: "/api/v1/properties/web",
+      ));
+      dynamic json = jsonDecode(res.body);
+      ua = json["chrome_user_agent"].toString();
+      bv = json["chrome_version"].toString();
+      bn = int.parse(json["client_build_number"].toString());
+      return [ua, bv, bn];
+    } catch (err) {
+      continue;
+    }
+  }
+  ua = await _getUserAgent(handler);
+  bn = await _getBuildNumber(handler);
+  bv = ua.split("Chrome/")[1].split(" ")[0];
+  return [ua, bv, bn];
 }
 
 abstract class HttpRequest {
@@ -26,52 +84,59 @@ abstract class HttpRequest {
   String get rateLimitId => method + route.routeId;
 
   /// Creates and instance of [HttpRequest]
-  HttpRequest(this.route, {this.method = "GET", this.queryParams, Map<String, String>? headers, this.auditLog, this.globalRateLimit = true, this.auth = true}) {
+  HttpRequest(this.route,
+      {this.method = "GET",
+      this.queryParams,
+      Map<String, String>? headers,
+      this.auditLog,
+      this.globalRateLimit = true,
+      this.auth = true}) {
     uri = Uri.https(Constants.host, Constants.baseUri + route.path);
     this.headers = headers ?? {};
   }
 
-  // TODO: implement UA fetch from dolfies (?) API
-  Map<String, String> genHeaders() =>
-      {
-        ...headers,
-        "Accept-Language": "en-US",
-        "Cache-Control": "no-cache",
-        "Connection": "keep-alive",
-        "Origin": "https://discord.com",
-        "Pragma": "no-cache",
-        "Referer": "https://discord.com/channels/@me",
-        "Sec-CH-UA": '"Google Chrome";v="111", "Chromium";v="111", ";Not A Brand";v="99"',
-        "Sec-CH-UA-Mobile": "?0",
-        "Sec-CH-UA-Platform": '"Windows"',
-        "Sec-Fetch-Dest": "empty",
-        "Sec-Fetch-Mode": "cors",
-        "Sec-Fetch-Site": "same-origin",
-        "User-Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
-        "X-Discord-Locale": "en-US",
-        "X-Debug-Options": "bugReporterEnabled",
-        "X-Super-Properties": _genSuperProps(
-          {
-            'os': 'Windows',
-            'browser': 'Chrome',
-            'device': '',
-            'browser_user_agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
-            'browser_version': "111.0.0.0",
-            'os_version': '10',
-            'referrer': '',
-            'referring_domain': '',
-            'referrer_current': '',
-            'referring_domain_current': '',
-            'release_channel': 'stable',
-            'system_locale': 'en-US',
-            'client_build_number': 181113,
-            'client_event_source': null,
-            'design_id': 0,
-          }
-        ),
-      };
+  Future<Map<String, String>> genHeaders(HttpHandler handler) async {
+    List<dynamic> clientInfo = await _getBrowserInfo(handler);
+    return {
+      ...headers,
+      "Accept-Language": "en-US",
+      "Cache-Control": "no-cache",
+      "Connection": "keep-alive",
+      "Origin": "https://discord.com",
+      "Pragma": "no-cache",
+      "Referer": "https://discord.com/channels/@me",
+      "Sec-CH-UA":
+          '"Google Chrome";v="111", "Chromium";v="111", ";Not A Brand";v="99"',
+      "Sec-CH-UA-Mobile": "?0",
+      "Sec-CH-UA-Platform": '"Windows"',
+      "Sec-Fetch-Dest": "empty",
+      "Sec-Fetch-Mode": "cors",
+      "Sec-Fetch-Site": "same-origin",
+      "User-Agent":
+          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36',
+      "X-Discord-Locale": "en-US",
+      "X-Debug-Options": "bugReporterEnabled",
+      "X-Super-Properties": _genSuperProps({
+        'os': 'Windows',
+        'browser': 'Chrome',
+        'device': '',
+        'browser_user_agent': clientInfo[0],
+        'browser_version': clientInfo[1],
+        'os_version': '10',
+        'referrer': '',
+        'referring_domain': '',
+        'referrer_current': '',
+        'referring_domain_current': '',
+        'release_channel': 'stable',
+        'system_locale': 'en-US',
+        'client_build_number': clientInfo[2],
+        'client_event_source': null,
+        'design_id': 0,
+      }),
+    };
+  }
 
-  Future<http.BaseRequest> prepareRequest();
+  Future<http.BaseRequest> prepareRequest(HttpHandler handler);
 
   @override
   String toString() => '$method $uri';
@@ -83,13 +148,29 @@ class BasicRequest extends HttpRequest {
   final dynamic body;
 
   BasicRequest(HttpRoute route,
-      {String method = "GET", this.body, RawApiMap? queryParams, String? auditLog, Map<String, String>? headers, bool globalRateLimit = true, bool auth = true})
-      : super(route, method: method, queryParams: queryParams, auditLog: auditLog, headers: headers, globalRateLimit: globalRateLimit, auth: auth);
+      {String method = "GET",
+      this.body,
+      RawApiMap? queryParams,
+      String? auditLog,
+      Map<String, String>? headers,
+      bool globalRateLimit = true,
+      bool auth = true})
+      : super(route,
+            method: method,
+            queryParams: queryParams,
+            auditLog: auditLog,
+            headers: headers,
+            globalRateLimit: globalRateLimit,
+            auth: auth);
 
   @override
-  Future<http.BaseRequest> prepareRequest() async {
-    final request = http.Request(method, uri.replace(queryParameters: queryParams?.map((key, value) => MapEntry(key, value.toString()))))
-      ..headers.addAll(genHeaders());
+  Future<http.BaseRequest> prepareRequest(HttpHandler handler) async {
+    final request = http.Request(
+        method,
+        uri.replace(
+            queryParameters: queryParams
+                ?.map((key, value) => MapEntry(key, value.toString()))))
+      ..headers.addAll(await genHeaders(handler));
 
     if (body != null && method != "GET") {
       request.headers.addAll(_getJsonContentTypeHeader());
@@ -103,7 +184,8 @@ class BasicRequest extends HttpRequest {
     return request;
   }
 
-  Map<String, String> _getJsonContentTypeHeader() => {"Content-Type": "application/json"};
+  Map<String, String> _getJsonContentTypeHeader() =>
+      {"Content-Type": "application/json"};
 }
 
 /// Request with which files will be sent. Cannot contain request body.
@@ -123,12 +205,22 @@ class MultipartRequest extends HttpRequest {
       String? auditLog,
       bool auth = true,
       bool globalRateLimit = true})
-      : super(route, method: method, queryParams: queryParams, headers: headers, auditLog: auditLog, globalRateLimit: globalRateLimit, auth: auth);
+      : super(route,
+            method: method,
+            queryParams: queryParams,
+            headers: headers,
+            auditLog: auditLog,
+            globalRateLimit: globalRateLimit,
+            auth: auth);
 
   @override
-  Future<http.BaseRequest> prepareRequest() async {
-    final request = http.MultipartRequest(method, uri.replace(queryParameters: queryParams?.map((key, value) => MapEntry(key, value.toString()))))
-      ..headers.addAll(genHeaders());
+  Future<http.BaseRequest> prepareRequest(HttpHandler handler) async {
+    final request = http.MultipartRequest(
+        method,
+        uri.replace(
+            queryParameters: queryParams
+                ?.map((key, value) => MapEntry(key, value.toString()))))
+      ..headers.addAll(await genHeaders(handler));
 
     request.files.addAll(files);
 

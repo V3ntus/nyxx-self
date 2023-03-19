@@ -118,7 +118,7 @@ class HttpHandler implements Disposable {
     // Execute request
     currentBucket?.addInFlightRequest(request);
     final response = await client.options.httpRetryOptions.retry(
-      () async => httpClient.send(await request.prepareRequest()),
+      () async => httpClient.send(await request.prepareRequest(this)),
       onRetry: (ex) => logger.warning(
           'Exception when sending HTTP request (retrying automatically)', ex),
     );
