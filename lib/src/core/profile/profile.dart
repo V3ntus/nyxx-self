@@ -21,8 +21,6 @@ abstract class IProfile implements SnowflakeEntity {
   /// The user's [Member] profile if accessed from a guild;
   Member? get guildMember;
 
-  // TODO: implement guildMemberProfile
-
   /// A list of guilds that you share with the user. [null] if you did not fetch mutuals.
   List<Cacheable<Snowflake, IGuild>?> get mutualGuilds;
 
@@ -37,8 +35,6 @@ abstract class IProfile implements SnowflakeEntity {
 
   /// The [User] object of the user.
   IUser get user;
-
-  // TODO: implement userProfile
 }
 
 class Profile extends SnowflakeEntity implements IProfile {
@@ -76,29 +72,22 @@ class Profile extends SnowflakeEntity implements IProfile {
 
   /// Takes a list of mutual guilds from the profile and converts it
   /// into a list of [GuildCacheable] objects.
-  List<Cacheable<Snowflake, IGuild>?> _parseMutualGuilds(
-      List<dynamic> mutualGuilds) {
+  List<Cacheable<Snowflake, IGuild>?> _parseMutualGuilds(List<dynamic> mutualGuilds) {
     if (mutualGuilds.isEmpty) return [];
 
-    return [
-      for (var guild in mutualGuilds)
-        GuildCacheable(client, Snowflake(guild["id"] as String))
-    ];
+    return [for (var guild in mutualGuilds) GuildCacheable(client, Snowflake(guild["id"] as String))];
   }
 
   /// Creates an instance of [Profile]
-  Profile(this.client, RawApiMap raw)
-      : super(Snowflake(raw["user"]["id"])) {
+  Profile(this.client, RawApiMap raw) : super(Snowflake(raw["user"]["id"])) {
     connectedAccounts = [
-      for (var account in raw["connected_accounts"] as List)
-        PartialConnection(account as Map<String, dynamic>)
+      for (var account in raw["connected_accounts"] as List) PartialConnection(account as Map<String, dynamic>)
     ];
     if (raw["guild_mamber_profile"]?["guild_id"] != null) {
       guildMember = Member(client, raw["guild_member"] as Map<String, dynamic>,
           Snowflake(raw["guild_member_profile"]["guild_id"] as String));
     }
-    mutualGuilds =
-        _parseMutualGuilds(raw["mutual_guilds"] as List<dynamic>);
+    mutualGuilds = _parseMutualGuilds(raw["mutual_guilds"] as List<dynamic>);
     boostingSince = parseTime(raw["premium_guild_since"] as String);
     nitroSince = parseTime(raw["premium_since"] as String);
     nitroType = NitroType.from(raw["premium_type"] as int);
