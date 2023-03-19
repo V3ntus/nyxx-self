@@ -2,21 +2,22 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 import 'package:logging/logging.dart';
-import 'package:nyxx/src/events/http_events.dart';
-import 'package:nyxx/src/events/ratelimit_event.dart';
-import 'package:nyxx/src/internal/event_controller.dart';
-import 'package:nyxx/src/internal/interfaces/disposable.dart';
-import 'package:nyxx/src/nyxx.dart';
-import 'package:nyxx/src/internal/http/http_bucket.dart';
-import 'package:nyxx/src/internal/http/http_request.dart';
-import 'package:nyxx/src/internal/http/http_response.dart';
-import 'package:nyxx/src/utils/utils.dart';
+import 'package:nyxx_self/src/events/http_events.dart';
+import 'package:nyxx_self/src/events/ratelimit_event.dart';
+import 'package:nyxx_self/src/internal/event_controller.dart';
+import 'package:nyxx_self/src/internal/interfaces/disposable.dart';
+import 'package:nyxx_self/src/nyxx.dart';
+import 'package:nyxx_self/src/internal/http/http_bucket.dart';
+import 'package:nyxx_self/src/internal/http/http_request.dart';
+import 'package:nyxx_self/src/internal/http/http_response.dart';
+import 'package:nyxx_self/src/utils/utils.dart';
 
 class DevHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext? context) {
     return super.createHttpClient(context)
-      ..badCertificateCallback = (X509Certificate cert, String host, int port) => true;
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
   }
 }
 
@@ -37,9 +38,13 @@ class HttpHandler implements Disposable {
     httpClient = http.Client();
   }
 
-  HttpBucket? _upsertBucket(HttpRequest request, http.StreamedResponse response) {
+  HttpBucket? _upsertBucket(
+      HttpRequest request, http.StreamedResponse response) {
     //Get or Create Bucket
-    final bucket = _bucketByRequestRateLimitId.values.toList().firstWhereSafe((bucket) => bucket.isInBucket(response)) ?? HttpBucket.fromResponseSafe(response);
+    final bucket = _bucketByRequestRateLimitId.values
+            .toList()
+            .firstWhereSafe((bucket) => bucket.isInBucket(response)) ??
+        HttpBucket.fromResponseSafe(response);
     //Update Bucket
     bucket?.updateRateLimit(response);
 
@@ -60,7 +65,8 @@ class HttpHandler implements Disposable {
       request.headers.addAll({"Authorization": client.token});
     }
 
-    HttpBucket? currentBucket = _bucketByRequestRateLimitId[request.rateLimitId];
+    HttpBucket? currentBucket =
+        _bucketByRequestRateLimitId[request.rateLimitId];
 
     logger.fine('Executing request $request');
     logger.finer([
@@ -85,9 +91,15 @@ class HttpHandler implements Disposable {
     // Get actual time and check if request can be executed based on data that bucket already have
     // and wait if rate limit could be possibly hit
     final now = DateTime.now();
-    final globalWaitTime = request.globalRateLimit ? globalRateLimitReset.difference(now) : Duration.zero;
-    final bucketWaitTime = (currentBucket?.remaining ?? 1) > 0 ? Duration.zero : currentBucket!.reset.difference(now);
-    final waitTime = globalWaitTime.compareTo(bucketWaitTime) > 0 ? globalWaitTime : bucketWaitTime;
+    final globalWaitTime = request.globalRateLimit
+        ? globalRateLimitReset.difference(now)
+        : Duration.zero;
+    final bucketWaitTime = (currentBucket?.remaining ?? 1) > 0
+        ? Duration.zero
+        : currentBucket!.reset.difference(now);
+    final waitTime = globalWaitTime.compareTo(bucketWaitTime) > 0
+        ? globalWaitTime
+        : bucketWaitTime;
 
     if (globalWaitTime > Duration.zero) {
       logger.warning("Global rate limit reached on endpoint: ${request.uri}");
@@ -107,21 +119,26 @@ class HttpHandler implements Disposable {
     currentBucket?.addInFlightRequest(request);
     final response = await client.options.httpRetryOptions.retry(
       () async => httpClient.send(await request.prepareRequest()),
-      onRetry: (ex) => logger.warning('Exception when sending HTTP request (retrying automatically)', ex),
+      onRetry: (ex) => logger.warning(
+          'Exception when sending HTTP request (retrying automatically)', ex),
     );
     currentBucket?.removeInFlightRequest(request);
     currentBucket = _upsertBucket(request, response);
     return _handle(request, response);
   }
 
-  Future<HttpResponse> _handle(HttpRequest request, http.StreamedResponse response) async {
-    logger.fine('Handling response (${response.statusCode}) from request $request');
+  Future<HttpResponse> _handle(
+      HttpRequest request, http.StreamedResponse response) async {
+    logger.fine(
+        'Handling response (${response.statusCode}) from request $request');
     logger.finer('Headers: ${response.headers}');
 
     if (response.statusCode >= 200 && response.statusCode < 300) {
       final responseSuccess = await HttpResponseSuccess.fromResponse(response);
 
-      (client.eventsRest as RestEventController).onHttpResponseController.add(HttpResponseEvent(responseSuccess));
+      (client.eventsRest as RestEventController)
+          .onHttpResponseController
+          .add(HttpResponseEvent(responseSuccess));
       logger.finest('Successful response: $responseSuccess');
 
       return responseSuccess;
@@ -132,14 +149,17 @@ class HttpHandler implements Disposable {
     // Check for 429, emit events and wait given in response body time
     if (responseError.statusCode == 429) {
       final responseBody = responseError.jsonBody;
-      final retryAfter = Duration(milliseconds: ((responseBody["retry_after"] as double) * 1000).ceil());
+      final retryAfter = Duration(
+          milliseconds:
+              ((responseBody["retry_after"] as double) * 1000).ceil());
       final isGlobal = responseBody["global"] as bool;
 
       if (isGlobal) {
         globalRateLimitReset = DateTime.now().add(retryAfter);
       }
 
-      _events.onRateLimitedController.add(RatelimitEvent(request, false, response));
+      _events.onRateLimitedController
+          .add(RatelimitEvent(request, false, response));
 
       logger.warning(
         "${isGlobal ? "Global " : ""}Rate limited via 429 on endpoint: ${request.uri}. Trying to send request again in $retryAfter",
@@ -149,8 +169,12 @@ class HttpHandler implements Disposable {
       return Future.delayed(retryAfter, () => execute(request));
     }
 
-    (client.eventsRest as RestEventController).onHttpErrorController.add(HttpErrorEvent(responseError));
-    logger.finest('Unknown/error response: ${responseError.toString(short: true)}', responseError);
+    (client.eventsRest as RestEventController)
+        .onHttpErrorController
+        .add(HttpErrorEvent(responseError));
+    logger.finest(
+        'Unknown/error response: ${responseError.toString(short: true)}',
+        responseError);
 
     return responseError;
   }
