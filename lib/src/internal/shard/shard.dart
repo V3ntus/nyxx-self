@@ -400,17 +400,17 @@ class Shard implements IShard {
   // https://discord.com/developers/docs/topics/gateway#identifying
   void identify() => send(OPCodes.identify, {
         "token": manager.connectionManager.client.token,
-        "properties": {
-          "os": Platform.operatingSystem,
-          "browser": "nyxx",
-          "device": "nyxx",
-        },
-        "large_threshold": manager.connectionManager.client.options.largeThreshold,
-        "intents": manager.connectionManager.client.intents,
+        "capabilities": 509,
+        "properties": manager.connectionManager.client.httpHandler.superProps,
         if (manager.connectionManager.client.options.initialPresence != null) "presence": manager.connectionManager.client.options.initialPresence!.build(),
-        "shard": <int>[id, manager.totalNumShards],
         if (manager.connectionManager.client.options.payloadEncoding == Encoding.json && !manager.connectionManager.client.options.compressedGatewayPayloads)
           "compress": manager.connectionManager.client.options.payloadCompression,
+        'client_state': {
+          'guild_hashes': {},
+          'highest_last_message_id': '0',
+          'read_state_version': 0,
+          'user_guild_settings_version': -1,
+        },
       });
 
   /// Sends the resume payload to the gateway.
@@ -486,6 +486,9 @@ class Shard implements IShard {
           await manager.connectionManager.propagateReady();
         }
 
+        break;
+      case "READY_SUPPLEMENTAL":
+        // TODO: implement READY_SUPPLEMENTAL
         break;
       case "RESUMED":
         shouldResume = false;
