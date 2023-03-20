@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 
@@ -21,6 +22,7 @@ class DevHttpOverrides extends HttpOverrides {
 
 class HttpHandler implements Disposable {
   late final http.Client httpClient;
+  Map<String, dynamic>? superProps;
 
   final Logger logger = Logger("Http");
   final INyxxRest client;
@@ -34,6 +36,24 @@ class HttpHandler implements Disposable {
   HttpHandler(this.client) {
     // HttpOverrides.global = DevHttpOverrides();
     httpClient = http.Client();
+
+    getBrowserInfo().then((clientInfo) => superProps = {
+      'os': 'Windows',
+      'browser': 'Chrome',
+      'device': '',
+      'browser_user_agent': clientInfo[0],
+      'browser_version': clientInfo[1],
+      'os_version': '10',
+      'referrer': '',
+      'referring_domain': '',
+      'referrer_current': '',
+      'referring_domain_current': '',
+      'release_channel': 'stable',
+      'system_locale': 'en-US',
+      'client_build_number': clientInfo[2],
+      'client_event_source': null,
+      'design_id': 0,
+    });
   }
 
   HttpBucket? _upsertBucket(HttpRequest request, http.StreamedResponse response) {
@@ -52,6 +72,81 @@ class HttpHandler implements Disposable {
     }
 
     return bucket;
+  }
+
+  Future<int> _getBuildNumber() async {
+    RegExp assetRegex = RegExp(r"assets/+([a-z0-9]+\.js)");
+    http.Response res = await httpClient.get(Uri(
+      scheme: "https",
+      host: "discord.com",
+      path: "/login",
+    ));
+    http.Response assetRes = await httpClient.get(Uri(
+      scheme: "https",
+      host: "discord.com",
+      path: "/assets/${assetRegex.allMatches(res.body).toList()[-2]}.js",
+    ));
+    int buildIndex = assetRes.body.indexOf("buildNumber") + 24;
+    return int.tryParse(assetRes.body.substring(buildIndex, buildIndex + 6)) ?? 9999;
+  }
+
+  Future<String> _getUserAgent() async {
+    try {
+      http.Response res = await httpClient.get(Uri(
+        scheme: "https",
+        host: "jnrbsn.github.io",
+        path: "/user-agents/user-agents.json",
+      ));
+      String ua = jsonDecode(res.body)[0].toString();
+      return ua;
+    } catch (err) {
+      return "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36";
+    }
+  }
+
+  /// Returns a list with: user agent, browser version, and build number in order.
+  Future<List<dynamic>> getBrowserInfo() async {
+    String ua;
+    String bv;
+    int bn;
+    for (var i = 0; i < 3; i++) {
+      try {
+        http.Response res = await httpClient.get(Uri(
+          scheme: "https",
+          host: "cordapi.dolfi.es",
+          path: "/api/v1/properties/web",
+        ));
+        dynamic json = jsonDecode(res.body);
+        ua = json["chrome_user_agent"].toString();
+        bv = json["chrome_version"].toString();
+        bn = int.parse(json["client_build_number"].toString());
+        return [ua, bv, bn];
+      } catch (err) {
+        continue;
+      }
+    }
+    ua = await _getUserAgent();
+    bn = await _getBuildNumber();
+    bv = ua.split("Chrome/")[1].split(" ")[0];
+    // i'm so frickn lazy
+    superProps = {
+      'os': 'Windows',
+      'browser': 'Chrome',
+      'device': '',
+      'browser_user_agent': ua,
+      'browser_version': bv,
+      'os_version': '10',
+      'referrer': '',
+      'referring_domain': '',
+      'referrer_current': '',
+      'referring_domain_current': '',
+      'release_channel': 'stable',
+      'system_locale': 'en-US',
+      'client_build_number': bn,
+      'client_event_source': null,
+      'design_id': 0,
+    };
+    return [ua, bv, bn];
   }
 
   Future<HttpResponse> execute(HttpRequest request) async {
