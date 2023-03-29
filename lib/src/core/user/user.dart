@@ -129,6 +129,7 @@ class User extends SnowflakeEntity implements IUser {
 
   /// Creates an instance of [User]
   User(this.client, RawApiMap raw) : super(Snowflake(raw["id"])) {
+    // TODO: implement IPartialUser to reduce duplicated code
     username = raw["username"] as String;
     discriminator = int.parse(raw["discriminator"] as String);
     avatar = raw["avatar"] as String?;
@@ -202,5 +203,65 @@ class User extends SnowflakeEntity implements IUser {
     }
 
     return client.cdnHttpEndpoints.avatarDecoration(id, avatarDecorationHash!, size: size);
+  }
+}
+
+abstract class IPartialUser implements SnowflakeEntity, Mentionable {
+  String get username;
+
+  String get discriminator;
+
+  String? get avatar;
+
+  String? get avatarDecoration;
+
+  IUserFlags? get userFlags;
+
+  bool get bot;
+
+  bool get system;
+}
+
+class PartialUser extends SnowflakeEntity implements IPartialUser {
+  late final RawApiMap _raw;
+
+  @override
+  late final String? avatar;
+
+  @override
+  late final String? avatarDecoration;
+
+  @override
+  late final bool bot;
+
+  @override
+  late final String discriminator;
+
+  @override
+  String get mention => "<@!$id>";
+
+  @override
+  late final bool system;
+
+  @override
+  late final IUserFlags? userFlags;
+
+  @override
+  late final String username;
+
+  PartialUser(RawApiMap raw) : super(Snowflake(raw["id"])) {
+    _raw = raw;
+    username = raw["username"] as String;
+    discriminator = raw["discriminator"] as String;
+    avatar = raw["avatar"] as String?;
+    avatarDecoration = raw["avatar_decoration"] as String?;
+    bot = raw["bot"] as bool? ?? false;
+    system = raw["system"] as bool? ?? false;
+
+    if (raw["public_flags"] != null) {
+      userFlags = UserFlags(raw["public_flags"] as int);
+    } else {
+      userFlags = null;
+    }
   }
 }
