@@ -1,11 +1,15 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 import 'dart:isolate';
 import 'dart:math';
 
 import 'package:logging/logging.dart';
+import 'package:nyxx_self/nyxx.dart';
 import 'package:nyxx_self/src/core/guild/client_user.dart';
+import 'package:nyxx_self/src/core/guild/guild.dart';
 import 'package:nyxx_self/src/core/snowflake.dart';
+import 'package:nyxx_self/src/core/user/user.dart';
 import 'package:nyxx_self/src/events/channel_events.dart';
 import 'package:nyxx_self/src/events/guild_events.dart';
 import 'package:nyxx_self/src/events/invite_events.dart';
@@ -85,6 +89,8 @@ abstract class IShard implements Disposable {
 class Shard implements IShard {
   @override
   final int id;
+
+  late final RawApiMap _readyData;
 
   @override
   final ShardManager manager;
@@ -475,20 +481,64 @@ class Shard implements IShard {
 
     switch (type) {
       case "READY":
+        _readyData = RawApiMap.from(data["d"] as Map);
         sessionId = data["d"]["session_id"] as String;
         resumeGatewayUrl = data["d"]["resume_gateway_url"] as String;
 
         manager.connectionManager.client.self = ClientUser(manager.connectionManager.client, data["d"]["user"] as RawApiMap);
+        break;
+      case "READY_SUPPLEMENTAL":
+        // TODO: implement READY_SUPPLEMENTAL
+        Map<String, PartialUser> tempUsers = {_readyData['user']['id'] as String: PartialUser(_readyData['user'] as Map<String, dynamic>)};
+        if (_readyData['users'] is List<Map> && _readyData['users'] != null) {
+          for (var user in _readyData['users'] as List<Map>) {
+            tempUsers[user['id'] as String] = PartialUser(user as Map<String, dynamic>);
+          }
+        }
+
+        for (var guildData in (_readyData['guilds'] ?? []) as List<dynamic>) {
+          String guildID = guildData!["id"] as String;
+          if (!(guildData["unavailable"] as bool? ?? false)) {
+            Guild guild = Guild(manager.connectionManager.client, guildData as Map<String, dynamic>);
+            manager.connectionManager.client.guilds.addAll({
+              Snowflake(guildID): guild,
+            });
+          } else {
+            logger.fine("Fetching an unavailable guild: $guildID");
+            manager.connectionManager.client.fetchGuild(Snowflake(guildID)).then((guild) => {
+              manager.connectionManager.client.guilds.addAll({
+                Snowflake(guildID): Guild(manager.connectionManager.client, guild.raw),
+              })
+            });
+          }
+        }
+
+        List<dynamic> mergedMembers = [
+          ...((_readyData['members'] ?? []) as List<dynamic>),
+          ...((data['members'] ?? []) as List<dynamic>),
+        ];
+        mergedMembers.expand((_) {
+          List<Map<String, dynamic>?> tempMembers = [];
+          List<dynamic> tempMergedMembers = [
+            ..._readyData['merged_members'] as List? ?? [],
+            ...data['merged_members'] as List? ?? [],
+          ];
+          for (var mergedMember in tempMergedMembers) {
+            if (mergedMember is List<Map<String, dynamic>>) {
+              tempMembers.addAll(mergedMember);
+            }
+          }
+          return tempMembers;
+        });
+        for (var member in mergedMembers) {
+          member['user'] ??= tempUsers[member["user_id"]];
+        }
 
         logger.info("Shard ready!");
 
         if (!shouldResume) {
           await manager.connectionManager.propagateReady();
         }
-
-        break;
-      case "READY_SUPPLEMENTAL":
-        // TODO: implement READY_SUPPLEMENTAL
         break;
       case "RESUMED":
         shouldResume = false;
