@@ -38,22 +38,22 @@ class HttpHandler implements Disposable {
     httpClient = http.Client();
 
     getBrowserInfo().then((clientInfo) => superProps = {
-      'os': 'Windows',
-      'browser': 'Chrome',
-      'device': '',
-      'browser_user_agent': clientInfo[0],
-      'browser_version': clientInfo[1],
-      'os_version': '10',
-      'referrer': '',
-      'referring_domain': '',
-      'referrer_current': '',
-      'referring_domain_current': '',
-      'release_channel': 'stable',
-      'system_locale': 'en-US',
-      'client_build_number': clientInfo[2],
-      'client_event_source': null,
-      'design_id': 0,
-    });
+          'os': 'Windows',
+          'browser': 'Chrome',
+          'device': '',
+          'browser_user_agent': clientInfo[0],
+          'browser_version': clientInfo[1],
+          'os_version': '10',
+          'referrer': '',
+          'referring_domain': '',
+          'referrer_current': '',
+          'referring_domain_current': '',
+          'release_channel': 'stable',
+          'system_locale': 'en-US',
+          'client_build_number': clientInfo[2],
+          'client_event_source': null,
+          'design_id': 0,
+        });
   }
 
   HttpBucket? _upsertBucket(HttpRequest request, http.StreamedResponse response) {

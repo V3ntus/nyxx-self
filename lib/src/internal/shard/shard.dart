@@ -506,10 +506,10 @@ class Shard implements IShard {
           } else {
             logger.fine("Fetching an unavailable guild: $guildID");
             manager.connectionManager.client.fetchGuild(Snowflake(guildID)).then((guild) => {
-              manager.connectionManager.client.guilds.addAll({
-                Snowflake(guildID): Guild(manager.connectionManager.client, guild.raw),
-              })
-            });
+                  manager.connectionManager.client.guilds.addAll({
+                    Snowflake(guildID): Guild(manager.connectionManager.client, guild.raw),
+                  })
+                });
           }
         }
 
