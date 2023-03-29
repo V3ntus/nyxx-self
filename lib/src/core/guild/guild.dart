@@ -44,6 +44,8 @@ abstract class IGuild implements SnowflakeEntity {
   /// Reference to [INyxxWebsocket] instance
   INyxx get client;
 
+  RawApiMap get raw;
+
   /// The guild's name.
   String get name;
 
@@ -371,6 +373,9 @@ class Guild extends SnowflakeEntity implements IGuild {
   @override
   final INyxx client;
 
+  @override
+  late final RawApiMap raw;
+
   /// The guild's name.
   @override
   late final String name;
@@ -599,7 +604,7 @@ class Guild extends SnowflakeEntity implements IGuild {
   late final ICache<Snowflake, IGuildEvent> scheduledEvents;
 
   /// Creates an instance of [Guild]
-  Guild(this.client, RawApiMap raw, [bool guildCreate = false]) : super(Snowflake(raw["id"])) {
+  Guild(this.client, this.raw, [bool guildCreate = false]) : super(Snowflake(raw["id"])) {
     name = raw["name"] as String;
     afkTimeout = raw["afk_timeout"] as int;
     mfaLevel = raw["mfa_level"] as int;
