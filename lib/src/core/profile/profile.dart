@@ -15,6 +15,8 @@ abstract class IProfile implements SnowflakeEntity {
   /// Reference to client
   INyxx get client;
 
+  RawApiMap get raw;
+
   /// The user's connected accounts shown on the profile. Can be [null].
   List<PartialConnection?> get connectedAccounts;
 
@@ -41,6 +43,9 @@ class Profile extends SnowflakeEntity implements IProfile {
   /// Reference to client
   @override
   final INyxx client;
+
+  @override
+  final RawApiMap raw;
 
   /// The user's connected accounts shown on the profile. Can be [null].
   @override
@@ -79,7 +84,7 @@ class Profile extends SnowflakeEntity implements IProfile {
   }
 
   /// Creates an instance of [Profile]
-  Profile(this.client, RawApiMap raw) : super(Snowflake(raw["user"]["id"])) {
+  Profile(this.client, this.raw) : super(Snowflake(raw["user"]["id"])) {
     connectedAccounts = [for (var account in raw["connected_accounts"] as List) PartialConnection(account as Map<String, dynamic>)];
     if (raw["guild_mamber_profile"]?["guild_id"] != null) {
       guildMember = Member(client, raw["guild_member"] as Map<String, dynamic>, Snowflake(raw["guild_member_profile"]["guild_id"] as String));
