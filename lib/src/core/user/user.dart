@@ -22,6 +22,9 @@ abstract class IUser implements SnowflakeEntity, ISend, Mentionable, IMessageAut
 
   RawApiMap get raw;
 
+  /// The user's bio.
+  String? get bio;
+
   /// The user's avatar hash.
   String? get avatar;
 
@@ -81,6 +84,10 @@ class User extends SnowflakeEntity implements IUser {
   @override
   String get formattedDiscriminator => discriminator.toString().padLeft(4, "0");
 
+  /// The user's bio.
+  @override
+  late final String? bio;
+
   /// The user's avatar hash.
   @override
   late final String? avatar;
@@ -137,6 +144,7 @@ class User extends SnowflakeEntity implements IUser {
     // TODO: implement IPartialUser to reduce duplicated code
     username = raw["username"] as String;
     discriminator = int.parse(raw["discriminator"] as String);
+    bio = raw["bio"] as String?;
     avatar = raw["avatar"] as String?;
     bot = raw["bot"] as bool? ?? false;
     system = raw["system"] as bool? ?? false;
