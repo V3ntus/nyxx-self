@@ -64,6 +64,8 @@ class User extends SnowflakeEntity implements IUser {
   @override
   final INyxx client;
 
+  final RawApiMap raw;
+
   /// The user's username.
   @override
   late final String username;
@@ -128,7 +130,7 @@ class User extends SnowflakeEntity implements IUser {
   late final String? avatarDecorationHash;
 
   /// Creates an instance of [User]
-  User(this.client, RawApiMap raw) : super(Snowflake(raw["id"])) {
+  User(this.client, this.raw) : super(Snowflake(raw["id"])) {
     // TODO: implement IPartialUser to reduce duplicated code
     username = raw["username"] as String;
     discriminator = int.parse(raw["discriminator"] as String);
