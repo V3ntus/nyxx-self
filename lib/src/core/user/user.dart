@@ -212,6 +212,8 @@ class User extends SnowflakeEntity implements IUser {
 }
 
 abstract class IPartialUser implements SnowflakeEntity, Mentionable {
+  RawApiMap get raw;
+
   String get username;
 
   String get discriminator;
@@ -228,7 +230,8 @@ abstract class IPartialUser implements SnowflakeEntity, Mentionable {
 }
 
 class PartialUser extends SnowflakeEntity implements IPartialUser {
-  late final RawApiMap _raw;
+  @override
+  final RawApiMap raw;
 
   @override
   late final String? avatar;
@@ -254,8 +257,7 @@ class PartialUser extends SnowflakeEntity implements IPartialUser {
   @override
   late final String username;
 
-  PartialUser(RawApiMap raw) : super(Snowflake(raw["id"])) {
-    _raw = raw;
+  PartialUser(this.raw) : super(Snowflake(raw["id"])) {
     username = raw["username"] as String;
     discriminator = raw["discriminator"] as String;
     avatar = raw["avatar"] as String?;
