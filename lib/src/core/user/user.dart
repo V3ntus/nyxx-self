@@ -20,6 +20,8 @@ abstract class IUser implements SnowflakeEntity, ISend, Mentionable, IMessageAut
   /// Reference to client
   INyxx get client;
 
+  RawApiMap get raw;
+
   /// The user's avatar hash.
   String? get avatar;
 
@@ -64,6 +66,7 @@ class User extends SnowflakeEntity implements IUser {
   @override
   final INyxx client;
 
+  @override
   final RawApiMap raw;
 
   /// The user's username.
