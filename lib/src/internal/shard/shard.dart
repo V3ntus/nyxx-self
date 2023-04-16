@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
 import 'dart:isolate';
 import 'dart:math';
 
@@ -6,6 +8,7 @@ import 'package:logging/logging.dart';
 import 'package:nyxx_self/nyxx.dart';
 import 'package:nyxx_self/src/core/guild/client_user.dart';
 import 'package:nyxx_self/src/core/guild/guild.dart';
+import 'package:nyxx_self/src/core/snowflake.dart';
 import 'package:nyxx_self/src/core/user/user.dart';
 import 'package:nyxx_self/src/events/channel_events.dart';
 import 'package:nyxx_self/src/events/guild_events.dart';
@@ -22,10 +25,16 @@ import 'package:nyxx_self/src/events/typing_event.dart';
 import 'package:nyxx_self/src/events/user_update_event.dart';
 import 'package:nyxx_self/src/events/voice_server_update_event.dart';
 import 'package:nyxx_self/src/events/voice_state_update_event.dart';
+import 'package:nyxx_self/src/internal/constants.dart';
 import 'package:nyxx_self/src/internal/event_controller.dart';
+import 'package:nyxx_self/src/internal/exceptions/invalid_shard_exception.dart';
+import 'package:nyxx_self/src/internal/exceptions/unrecoverable_nyxx_error.dart';
+import 'package:nyxx_self/src/internal/interfaces/disposable.dart';
 import 'package:nyxx_self/src/internal/shard/message.dart';
 import 'package:nyxx_self/src/internal/shard/shard_handler.dart';
 import 'package:nyxx_self/src/internal/shard/shard_manager.dart';
+import 'package:nyxx_self/src/typedefs.dart';
+import 'package:nyxx_self/src/utils/builders/presence_builder.dart';
 
 /// A connection to the [Discord Gateway](https://discord.com/developers/docs/topics/gateway).
 ///
@@ -399,10 +408,8 @@ class Shard implements IShard {
         "token": manager.connectionManager.client.token,
         "capabilities": 509,
         "properties": manager.connectionManager.client.httpHandler.superProps,
-        if (manager.connectionManager.client.options.initialPresence != null)
-          "presence": manager.connectionManager.client.options.initialPresence!.build(),
-        if (manager.connectionManager.client.options.payloadEncoding == Encoding.json &&
-            !manager.connectionManager.client.options.compressedGatewayPayloads)
+        if (manager.connectionManager.client.options.initialPresence != null) "presence": manager.connectionManager.client.options.initialPresence!.build(),
+        if (manager.connectionManager.client.options.payloadEncoding == Encoding.json && !manager.connectionManager.client.options.compressedGatewayPayloads)
           "compress": manager.connectionManager.client.options.payloadCompression,
         'client_state': {
           'guild_hashes': {},
@@ -478,13 +485,11 @@ class Shard implements IShard {
         sessionId = data["d"]["session_id"] as String;
         resumeGatewayUrl = data["d"]["resume_gateway_url"] as String;
 
-        manager.connectionManager.client.self =
-            ClientUser(manager.connectionManager.client, data["d"]["user"] as RawApiMap);
+        manager.connectionManager.client.self = ClientUser(manager.connectionManager.client, data["d"]["user"] as RawApiMap);
         break;
       case "READY_SUPPLEMENTAL":
-        Map<String, PartialUser> tempUsers = {
-          _readyData['user']['id'] as String: PartialUser(_readyData['user'] as Map<String, dynamic>)
-        };
+        // TODO: implement READY_SUPPLEMENTAL
+        Map<String, PartialUser> tempUsers = {_readyData['user']['id'] as String: PartialUser(_readyData['user'] as Map<String, dynamic>)};
         if (_readyData['users'] is List<Map> && _readyData['users'] != null) {
           for (var user in _readyData['users'] as List<Map>) {
             tempUsers[user['id'] as String] = PartialUser(user as Map<String, dynamic>);
@@ -545,28 +550,23 @@ class Shard implements IShard {
         break;
 
       case "MESSAGE_REACTION_REMOVE_ALL":
-        eventController.onMessageReactionsRemovedController
-            .add(MessageReactionsRemovedEvent(data, manager.connectionManager.client));
+        eventController.onMessageReactionsRemovedController.add(MessageReactionsRemovedEvent(data, manager.connectionManager.client));
         break;
 
       case "MESSAGE_REACTION_ADD":
-        eventController.onMessageReactionAddedController
-            .add(MessageReactionAddedEvent(data, manager.connectionManager.client));
+        eventController.onMessageReactionAddedController.add(MessageReactionAddedEvent(data, manager.connectionManager.client));
         break;
 
       case "MESSAGE_REACTION_REMOVE":
-        eventController.onMessageReactionRemoveController
-            .add(MessageReactionRemovedEvent(data, manager.connectionManager.client));
+        eventController.onMessageReactionRemoveController.add(MessageReactionRemovedEvent(data, manager.connectionManager.client));
         break;
 
       case "MESSAGE_DELETE_BULK":
-        eventController.onMessageDeleteBulkController
-            .add(MessageDeleteBulkEvent(data, manager.connectionManager.client));
+        eventController.onMessageDeleteBulkController.add(MessageDeleteBulkEvent(data, manager.connectionManager.client));
         break;
 
       case "CHANNEL_PINS_UPDATE":
-        eventController.onChannelPinsUpdateController
-            .add(ChannelPinsUpdateEvent(data, manager.connectionManager.client));
+        eventController.onChannelPinsUpdateController.add(ChannelPinsUpdateEvent(data, manager.connectionManager.client));
         break;
 
       case "VOICE_STATE_UPDATE":
@@ -574,13 +574,11 @@ class Shard implements IShard {
         break;
 
       case "VOICE_SERVER_UPDATE":
-        eventController.onVoiceServerUpdateController
-            .add(VoiceServerUpdateEvent(data, manager.connectionManager.client));
+        eventController.onVoiceServerUpdateController.add(VoiceServerUpdateEvent(data, manager.connectionManager.client));
         break;
 
       case "GUILD_EMOJIS_UPDATE":
-        eventController.onGuildEmojisUpdateController
-            .add(GuildEmojisUpdateEvent(data, manager.connectionManager.client));
+        eventController.onGuildEmojisUpdateController.add(GuildEmojisUpdateEvent(data, manager.connectionManager.client));
         break;
 
       case "MESSAGE_CREATE":
@@ -622,13 +620,11 @@ class Shard implements IShard {
         break;
 
       case "GUILD_MEMBER_REMOVE":
-        eventController.onGuildMemberRemoveController
-            .add(GuildMemberRemoveEvent(data, manager.connectionManager.client));
+        eventController.onGuildMemberRemoveController.add(GuildMemberRemoveEvent(data, manager.connectionManager.client));
         break;
 
       case "GUILD_MEMBER_UPDATE":
-        eventController.onGuildMemberUpdateController
-            .add(GuildMemberUpdateEvent(data, manager.connectionManager.client));
+        eventController.onGuildMemberUpdateController.add(GuildMemberUpdateEvent(data, manager.connectionManager.client));
         break;
 
       case "CHANNEL_CREATE":
@@ -676,8 +672,7 @@ class Shard implements IShard {
         break;
 
       case "MESSAGE_REACTION_REMOVE_EMOJI":
-        eventController.onMessageReactionRemoveEmojiController
-            .add(MessageReactionRemoveEmojiEvent(data, manager.connectionManager.client));
+        eventController.onMessageReactionRemoveEmojiController.add(MessageReactionRemoveEmojiEvent(data, manager.connectionManager.client));
         break;
 
       case "THREAD_CREATE":
@@ -685,8 +680,7 @@ class Shard implements IShard {
         break;
 
       case "THREAD_MEMBERS_UPDATE":
-        eventController.onThreadMembersUpdateController
-            .add(ThreadMembersUpdateEvent(data, manager.connectionManager.client));
+        eventController.onThreadMembersUpdateController.add(ThreadMembersUpdateEvent(data, manager.connectionManager.client));
         break;
 
       case "THREAD_DELETE":
@@ -710,33 +704,27 @@ class Shard implements IShard {
         break;
 
       case 'AUTO_MODERATION_RULE_CREATE':
-        eventController.onAutoModerationRuleCreateController
-            .add(AutoModerationRuleCreateEvent(data, manager.connectionManager.client));
+        eventController.onAutoModerationRuleCreateController.add(AutoModerationRuleCreateEvent(data, manager.connectionManager.client));
         break;
 
       case 'AUTO_MODERATION_RULE_UPDATE':
-        eventController.onAutoModerationRuleUpdateController
-            .add(AutoModerationRuleUpdateEvent(data, manager.connectionManager.client));
+        eventController.onAutoModerationRuleUpdateController.add(AutoModerationRuleUpdateEvent(data, manager.connectionManager.client));
         break;
 
       case 'AUTO_MODERATION_RULE_DELETE':
-        eventController.onAutoModerationRuleDeleteController
-            .add(AutoModerationRuleDeleteEvent(data, manager.connectionManager.client));
+        eventController.onAutoModerationRuleDeleteController.add(AutoModerationRuleDeleteEvent(data, manager.connectionManager.client));
         break;
 
       case 'AUTO_MODERATION_ACTION_EXECUTION':
-        eventController.onAutoModerationActionExecutionController
-            .add(AutoModeratioActionExecutionEvent(data, manager.connectionManager.client));
+        eventController.onAutoModerationActionExecutionController.add(AutoModeratioActionExecutionEvent(data, manager.connectionManager.client));
         break;
 
       case 'GUILD_AUDIT_LOG_ENTRY_CREATE':
-        eventController.onAuditLogEntryCreateController
-            .add(AuditLogEntryCreateEvent(data, manager.connectionManager.client));
+        eventController.onAuditLogEntryCreateController.add(AuditLogEntryCreateEvent(data, manager.connectionManager.client));
         break;
 
       case 'THREAD_MEMBER_UPDATE':
-        eventController.onThreadMemberUpdateController
-            .add(ThreadMemberUpdateEvent(data, manager.connectionManager.client));
+        eventController.onThreadMemberUpdateController.add(ThreadMemberUpdateEvent(data, manager.connectionManager.client));
         break;
 
       case 'THREAD_UPDATE':
@@ -784,8 +772,7 @@ class Shard implements IShard {
   void setPresence(PresenceBuilder presenceBuilder) => send(OPCodes.statusUpdate, presenceBuilder.build());
 
   @override
-  void changeVoiceState(Snowflake? guildId, Snowflake? channelId, {bool selfMute = false, bool selfDeafen = false}) =>
-      send(
+  void changeVoiceState(Snowflake? guildId, Snowflake? channelId, {bool selfMute = false, bool selfDeafen = false}) => send(
         OPCodes.voiceStateUpdate,
         <String, dynamic>{
           "guild_id": guildId?.toString(),
@@ -818,8 +805,7 @@ class Shard implements IShard {
 
     for (final id in guild) {
       if (!guilds.contains(id)) {
-        throw InvalidShardException(
-            "Cannot request guild $id on shard ${this.id} because it does not exist on this shard");
+        throw InvalidShardException("Cannot request guild $id on shard ${this.id} because it does not exist on this shard");
       }
     }
 
