@@ -102,7 +102,7 @@ class ClientOptions {
     this.initialPresence,
     this.shutdownHook,
     this.shutdownShardHook,
-    this.dispatchRawShardEvent = false,
+    this.dispatchRawShardEvent = true,
     this.shardIds,
     this.shardReconnectOptions = const RetryOptions(),
     this.httpRetryOptions = const RetryOptions(),
