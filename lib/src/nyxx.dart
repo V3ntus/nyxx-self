@@ -272,6 +272,9 @@ abstract class INyxxWebsocket implements INyxxRest {
   /// If [withCounts] is set to true, then guild will have [IGuild.approximateMemberCount] and [IGuild.approximatePresenceCount] present.
   Future<IGuild> fetchGuild(Snowflake guildId, {bool? withCounts = true});
 
+  // TODO: add docstring
+  void requestLazyGuild(Snowflake guildId);
+
   /// Creates a guild.
   ///
   /// **⚠️ This endpoint can only be used by bots that are in ten guilds or fewer.**
@@ -514,5 +517,26 @@ class NyxxWebsocket extends NyxxRest implements INyxxWebsocket {
     await eventsWs.dispose();
 
     _logger.info("Bot disposed.");
+  }
+
+  // TODO: add docstring
+  // https://arandomnewaccount.gitlab.io/discord-unofficial-docs/lazy_guilds.html
+  @override
+  void requestLazyGuild(Snowflake guildId, {
+    bool? typing,
+    bool? threads,
+    bool? activities,
+    List<Snowflake>? members,
+    List<Map<Snowflake, List<List<int>>>>? channels,
+  }) async {
+    _logger.fine("Sending GUILD_SUBSCRIBE for guild ${guildId.toString()}");
+    shardManager.shards.first.send(14, {
+      'guild_id': guildId.toString(),
+      ...(typing != null ? {'typing': typing} : {}),
+      ...(threads != null ? {'threads': threads} : {}),
+      ...(activities != null ? {'activities': activities} : {}),
+      ...(members != null ? {'members': members} : {}),
+      ...(channels != null ? {'members': channels} : {}),
+    });
   }
 }

@@ -821,6 +821,7 @@ class HttpEndpoints implements IHttpEndpoints {
 
   @override
   Stream<IMember> fetchGuildMembers(Snowflake guildId, {int limit = 1, Snowflake? after}) async* {
+    // TODO: implement member sidebar scraping when guild member permissions are mismatched
     final response = await executeSafe(BasicRequest(
       HttpRoute()
         ..guilds(id: guildId.toString())
