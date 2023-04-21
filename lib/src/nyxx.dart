@@ -273,7 +273,14 @@ abstract class INyxxWebsocket implements INyxxRest {
   Future<IGuild> fetchGuild(Snowflake guildId, {bool? withCounts = true});
 
   // TODO: add docstring
-  void requestLazyGuild(Snowflake guildId);
+  void requestLazyGuild(
+    Snowflake guildId, {
+    bool? typing,
+    bool? threads,
+    bool? activities,
+    List<Snowflake>? members,
+    Map<Snowflake, List<Map<int, int>>>? channels,
+  });
 
   /// Creates a guild.
   ///
@@ -522,12 +529,13 @@ class NyxxWebsocket extends NyxxRest implements INyxxWebsocket {
   // TODO: add docstring
   // https://arandomnewaccount.gitlab.io/discord-unofficial-docs/lazy_guilds.html
   @override
-  void requestLazyGuild(Snowflake guildId, {
+  void requestLazyGuild(
+    Snowflake guildId, {
     bool? typing,
     bool? threads,
     bool? activities,
     List<Snowflake>? members,
-    List<Map<Snowflake, List<List<int>>>>? channels,
+    Map<Snowflake, List<Map<int, int>>>? channels,
   }) async {
     _logger.fine("Sending GUILD_SUBSCRIBE for guild ${guildId.toString()}");
     shardManager.shards.first.send(14, {
@@ -536,7 +544,11 @@ class NyxxWebsocket extends NyxxRest implements INyxxWebsocket {
       ...(threads != null ? {'threads': threads} : {}),
       ...(activities != null ? {'activities': activities} : {}),
       ...(members != null ? {'members': members} : {}),
-      ...(channels != null ? {'members': channels} : {}),
+      ...(channels != null
+          ? {
+              'channels': channels.map((key, value) => MapEntry(key.toString(), value.map((e) => [e.keys.first, e.values.first])))
+            }
+          : {}),
     });
   }
 }
