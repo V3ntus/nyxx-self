@@ -91,3 +91,4 @@ Read [contributing document](https://github.com/nyxx-discord/nyxx/blob/dev/CONTR
 ## Credits 
 
  * [Hackzzila's](https://github.com/Hackzzila) for [nyx](https://github.com/Hackzzila/nyx).
+ * [dolfies](https://github.com/dolfies) for the API help
