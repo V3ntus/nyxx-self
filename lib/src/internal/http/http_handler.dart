@@ -81,10 +81,11 @@ class HttpHandler implements Disposable {
       host: "discord.com",
       path: "/login",
     ));
+    final assetResMatches = assetRegex.allMatches(res.body).toList();
     http.Response assetRes = await httpClient.get(Uri(
       scheme: "https",
       host: "discord.com",
-      path: "/assets/${assetRegex.allMatches(res.body).toList()[-2]}.js",
+      path: "/assets/${assetResMatches[assetResMatches.length - 2]}.js",
     ));
     int buildIndex = assetRes.body.indexOf("buildNumber") + 24;
     return int.tryParse(assetRes.body.substring(buildIndex, buildIndex + 6)) ?? 9999;
