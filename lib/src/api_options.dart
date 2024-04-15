@@ -4,14 +4,8 @@ import 'package:nyxx_self/src/utils/flags.dart';
 
 /// Options for connecting to the Discord API.
 abstract class ApiOptions {
-  /// The version of nyxx used in [defaultUserAgent].
-  static const nyxxVersion = '6.2.1';
-
-  /// The URL to the nyxx repository used in [defaultUserAgent].
-  static const nyxxRepositoryUrl = 'https://github.com/nyxx-discord/nyxx';
-
-  /// The default value for the `User-Agent` header for bots made with nyxx.
-  static const defaultUserAgent = 'DiscordBot ($nyxxRepositoryUrl, $nyxxVersion)';
+  /// The default value for the `User-Agent` header.
+  static const defaultUserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36';
 
   /// The host at which the API can be found.
   ///
@@ -45,7 +39,7 @@ class RestApiOptions extends ApiOptions {
   final String token;
 
   @override
-  String get authorizationHeader => 'Bot $token';
+  String get authorizationHeader => token;
 
   /// Create a new [RestApiOptions].
   RestApiOptions({required this.token, super.userAgent});
