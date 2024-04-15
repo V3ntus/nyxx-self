@@ -76,8 +76,7 @@ abstract class Nyxx {
 
   /// Create an instance of [NyxxRest] that can perform requests to the HTTP API and is
   /// authenticated with a bot token.
-  static Future<NyxxRest> connectRest(String token, {RestClientOptions options = const RestClientOptions()}) =>
-      connectRestWithOptions(RestApiOptions(token: token), options);
+  static Future<NyxxRest> connectRest(String token, {RestClientOptions options = const RestClientOptions()}) => connectRestWithOptions(RestApiOptions(token: token), options);
 
   /// Create an instance of [NyxxRest] using the provided options.
   static Future<NyxxRest> connectRestWithOptions(RestApiOptions apiOptions, [RestClientOptions clientOptions = const RestClientOptions()]) async {
@@ -89,9 +88,7 @@ abstract class Nyxx {
     return _doConnect(apiOptions, clientOptions, () async {
       final client = NyxxRest._(apiOptions, clientOptions);
 
-      return client
-        .._application = await client.applications.fetchCurrentApplication()
-        .._user = await client.users.fetchCurrentUser();
+      return client.._user = await client.users.fetchCurrentUser();
     }, clientOptions.plugins);
   }
 
@@ -117,9 +114,7 @@ abstract class Nyxx {
     return _doConnect(apiOptions, clientOptions, () async {
       final client = NyxxGateway._(apiOptions, clientOptions);
 
-      client
-        .._application = await client.applications.fetchCurrentApplication()
-        .._user = await client.users.fetchCurrentUser();
+      client._user = await client.users.fetchCurrentUser();
 
       // We can't use client.gateway as it is not initialized yet
       final gatewayManager = GatewayManager(client);
@@ -177,8 +172,7 @@ class NyxxRest with ManagerMixin implements Nyxx {
   Future<void> leaveThread(Snowflake id) => channels.leaveThread(id);
 
   /// List the guilds the current user is a member of.
-  Future<List<UserGuild>> listGuilds({Snowflake? before, Snowflake? after, int? limit}) =>
-      users.listCurrentUserGuilds(before: before, after: after, limit: limit);
+  Future<List<UserGuild>> listGuilds({Snowflake? before, Snowflake? after, int? limit}) => users.listCurrentUserGuilds(before: before, after: after, limit: limit);
 
   @override
   Future<void> close() {
@@ -230,8 +224,7 @@ class NyxxGateway with ManagerMixin, EventMixin implements NyxxRest {
   Future<void> leaveThread(Snowflake id) => channels.leaveThread(id);
 
   @override
-  Future<List<UserGuild>> listGuilds({Snowflake? before, Snowflake? after, int? limit}) =>
-      users.listCurrentUserGuilds(before: before, after: after, limit: limit);
+  Future<List<UserGuild>> listGuilds({Snowflake? before, Snowflake? after, int? limit}) => users.listCurrentUserGuilds(before: before, after: after, limit: limit);
 
   /// Update the client's voice state in the guild with the ID [guildId].
   void updateVoiceState(Snowflake guildId, GatewayVoiceStateBuilder builder) => gateway.updateVoiceState(guildId, builder);

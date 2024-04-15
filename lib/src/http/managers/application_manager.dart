@@ -1,6 +1,3 @@
-import 'dart:convert';
-
-import 'package:nyxx_self/src/builders/application.dart';
 import 'package:nyxx_self/src/client.dart';
 import 'package:nyxx_self/src/http/request.dart';
 import 'package:nyxx_self/src/http/route.dart';
@@ -162,24 +159,6 @@ class ApplicationManager {
 
     final response = await client.httpHandler.executeSafe(request);
     return parseMany(response.jsonBody as List<Object?>, parseApplicationRoleConnectionMetadata);
-  }
-
-  /// Fetch the current application.
-  Future<Application> fetchCurrentApplication() async {
-    final route = HttpRoute()..users(id: "@me");
-    final request = BasicRequest(route);
-
-    final response = await client.httpHandler.executeSafe(request);
-    return parse(response.jsonBody as Map<String, Object?>);
-  }
-
-  /// Update the current application.
-  Future<Application> updateCurrentApplication(ApplicationUpdateBuilder builder) async {
-    final route = HttpRoute()..users(id: "@me");
-    final request = BasicRequest(route, method: 'PATCH', body: jsonEncode(builder.build()));
-
-    final response = await client.httpHandler.executeSafe(request);
-    return parse(response.jsonBody as Map<String, Object?>);
   }
 
   /// List this application's SKUs.

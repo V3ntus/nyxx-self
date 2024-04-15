@@ -29,7 +29,7 @@ class ReadyEvent extends DispatchEvent {
   final int? totalShards;
 
   /// The client's application.
-  final PartialApplication application;
+  final PartialApplication? application;
 
   /// {@macro ready_event}
   /// @nodoc
@@ -42,7 +42,7 @@ class ReadyEvent extends DispatchEvent {
     required this.gatewayResumeUrl,
     required this.shardId,
     required this.totalShards,
-    required this.application,
+    this.application,
   });
 }
 
