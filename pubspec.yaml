@@ -1,23 +1,27 @@
 name: nyxx_self
-version: 5.0.1
-description: The self-bot fork of nyxx, a simple, robust framework for creating discord bots for Dart language.
+version: 6.2.1
+description: The self-bot fork of nyxx, a complete, robust and efficient wrapper around Discord's API for bots & applications.
 homepage: https://github.com/V3ntus/nyxx
 repository: https://github.com/V3nuts/nyxx
 documentation: https://nyxx.l7ssha.xyz
 issue_tracker: https://github.com/V3ntus/nyxx/issues
 
 environment:
-  sdk: '>=2.17.0 <4.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  http: ^0.13.3
+  http: ^1.0.0
   logging: ^1.0.1
   path: ^1.8.3
   retry: ^3.1.0
   eterl: ^1.0.1
+  runtime_type: ^1.0.1
+  meta: ^1.9.1
+  oauth2: ^2.0.2
 
 dev_dependencies:
   test: ^1.22.0
-  mockito: ^5.0.16
-  build_runner: ^2.3.0
   lints: ^2.0.0
+  nock: ^1.2.1
+  mocktail: ^1.0.0
+  matcher: ^0.12.16

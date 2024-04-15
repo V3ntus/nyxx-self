@@ -1,7 +1,184 @@
+## 6.2.1
+__03.04.2024__
+
+- bug: Fix parsing integration types when they are not present.
+
+## 6.2.0
+__20.03.2024__
+
+- feat: Add support for Group DM endpoints when using an OAuth client.
+- feat: Add support for `username` and `avatarUrl` parameters for webhooks.
+- feat: Add `Spanish, LATAM` locale.
+- bug: Fix events being dropped when plugins had async initialization.
+- bug: Return an empty list instead of throwing when fetching the permission overrides of a command that has none.
+- feat: Add ratelimits when sending Gateway events.
+- bug: Allow any `Flags<Permissions>` in `RoleUpdateBuilder.permissions`.
+- bug: Export types that were previously kept private.
+- feat: Allow plugins to intercept HTTP requests and Gateway events.
+- bug: Fix `MessageManager.bulkDelete` not serializing the request correctly.
+- bug: Fix `GuildDeleteEvent`s not being parsed when `unavailable` was not explicitly set.
+- bug: Correct serialization of guild builders.
+- bug: Correct value of `TriggerType.spam`.
+- docs: Hide constructors from documentation.
+- bug: Fix parsing role flags in guild templates.
+- bug: Fix `isHoisted` attribute in role builders.
+- bug: Fix all audit log parameters in `StickerManager`, `EmojiManager` and `WebhookManager.update`
+- bug: Fix `interactionsEndpointUrl` being ignored in `ApplicationUpdateBuilder`
+- feat: Add more shortcut methods on models.
+- feat: Add `enforceNonce` to `MessageBuilder`.
+- feat: Add missing role tags fields.
+- bug: Correct the default `User-Agent` header.
+- bug: Don't require OAuth2 identify scope when using `NyxxOauth2`.
+- feat: Add field to delete events containing the cached entity before it was deleted.
+- feat: Add builders for auto moderation actions.
+- bug: Initialize login sooner to avoid dropping logs.
+- feat: Add `banner` to `UserUpdateBuilder`.
+- feat: Add `SkuFlags.available`.
+- feat: Add bungie, domain and roblox connection types.
+- feat: Add support for user applications.
+- feat: Add `bulkBan` to `GuildManager`.
+
+## 6.1.0
+__09.12.2023__
+
+- feat: Add payload to `EntitlementDeleteEvent`.
+- feat: Add `flags` field to `Sku`.
+- feat: Add support for select menu default values.
+- feat: Add `GuildUpdateBuilder.safetyAlertsChannelId`.
+- docs: Enable link to source in package documentation.
+- feat: Add AutoMod message types.
+- bug: Fix `ButtonBuilder` serialization.
+- bug: Fix `GuildUpdateBuilder` not being able to unset certain settings.
+- bug: Fix incorrect `PermissionOverwriteBuilder` serialization when creating/updating channels.
+- bug: Fix `GuildManager.listBans` ignoring the provided parameters.
+- bug: Correctly export `Credentials` from `package:oauth2` for OAuth2 support.
+- bug: Fix members in message interactions not having their guild set.
+
+## 6.0.3
+__26.11.2023__
+
+- bug: Fix incorrect serialization of autocompletion interaction responses (again).
+- bug: Try to fix invalid sessions triggered by Gateway reconnects.
+
+## 6.0.2
+__16.11.2023__
+
+- bug: Fix incorrect assertions in interaction.respond.
+- bug: Fix incorrect serialization of autocompletion interaction responses.
+
+## 6.0.1
+__01.11.2023__
+
+- bug: Fix incorrect serialization of CommandOptionBuilder.
+- bug: Fix customId missing from ButtonBuilder constructor.
+- bug: Fix voice states not being cached correctly.
+- bug: Fix incorrect parsing of scheduled events.
+- bug: Fix `ephemeral` parameter not working when responding to message component interactions.
+- bug: Fix parsing button labels when they are not set.
+- bug: Fix incorrect serialization of TextInputBuilder.
+- bug: Fix some entities not being cached.
+- bug: Fix entities getting "stuck" in cache due to momentary high use.
+- feat: Add more places entities can be cached from.
+
+## 6.0.0
+__16.10.2023__
+
+- rewrite: The entire library has been rewritten from the ground up. No pre-`6.0.0` code is compatible.
+  To explore the rewrite, check out [the API documentation](https://pub.dev/documentation/nyxx) or the [documentation website](https://nyxx.l7ssha.xyz).
+  For help migrating, use the [migration tool](https://github.com/abitofevrything/nyxx-migration-script) or join [our Discord server](https://discord.gg/nyxx) for additional help.
+
+#### Changes since 6.0.0-dev.3
+- bug: Fix `ModalBuilder` having the incorrect data type.
+- feat: Add the new `state` field to `ActivityBuilder`.
+- bug: Fix `activities` not being sent in the presence update payload.
+- bug: Fix casts when parsing `Snowflake`s triggering errors when using ETF.
+- bug: Fix incorrect payload preventing the client from muting/deafening itself.
+- bug: Correctly export `NyxxPluginState`.
+- feat: Implement all new features since the start of the rewrite (including premium subscriptions).
+- bug: Fix incorrect parsing of `MessageUpdateEvent`s.
+- feat: Add `logger` to plugins and make `name` inferred from `runtimeType` by default.
+
+## 6.0.0-dev.3
+__16.09.2023__
+
+- rewrite: Interaction responses now throw errors instead of using assertions.
+- rewrite: Improved plugin interface with support for plugin state and a simpler API.
+- feat: Added constructors to most builders with multiple configurations.
+- feat: Added support for authenticating via OAuth2.
+- feat: Added `HttpHandler.onRateLimit` for tracking client rate limiting.
+- feat: Parse emoji in reaction events.
+- feat: Allow specifying `stdout` and `stderr` in `Logging`.
+- feat: Add `NyxxRest.user` to get the current user.
+- feat: `Attachment` now implements `CdnAsset` for easier fetching.
+- bug: Fixed emoji in SelectMenuBuilder not being sent correctly.
+- bug: Fixed parsing members in interaction data.
+- bug: `DiscordColor` did not allow a value of `0xffffff` (white).
+- bug: Fixed parsing role mentions as role objects in messages.
+
+
+## 6.0.0-dev.2
+__24.08.2023__
+
+- rewrite: Changed `MessageBuilder.embeds` and `MessageUpdateBuilder.embeds` to use a new `EmbedBuilder` instead of `Embed` objects.
+- rewrite: Changed all builders to be mutable.
+- rewrite: Implement the interactions & message components API.
+- rewrite: `ActivityBuilder` is now exported.
+- rewrite: Fixed some typos: `ChannelManager.parseForumChanel` -> `ChannelManager.parseForumChannel` and `chanel` -> `channel` in the docs for `VoiceChannel.videoQualityMode`.
+- rewrite: Added wrappers around CDN endpoints and assets.
+- feat: Added `Permissions.allPermissions`, the set of permission flags with all permissions.
+- feat: Added `HttpHandler.latency`, `HttpHandler.realLatency`, `Gateway.latency` and `Shard.latency` for tracking the client's latency.
+- feat: `Flags` now has the `~` and the `^` operators.
+- feat: Added `HttpHandler.onRequest` and `HttpHandler.onResponse` streams for tracking HTTP requests and responses.
+- bug: Fixed `MessageUpdateEvent`s causing a parsing error.
+- bug: Fixed classes creating uncaught async errors when `toString()` was invoked on them.
+- bug: Empty caches are no longer stored.
+- bug: Fixed stickers causing a parsing error.
+- bug: Fixed rate limits not applying correctly when multiple requests were queued.
+- bug: Fixed `applyGlobalRatelimit` in `HttpRequest` not doing anything.
+
+## 6.0.0-dev.1
+__03.07.2023__
+
+- rewrite: The entire library has been rewritten from the ground up. No pre-`6.0.0-dev.1` code is compatible.
+  Join our Discord server for updates concerning the migration path and help upgrading.
+  For now, check out the new examples and play around with the rewrite to get a feel for it.
+
+## 5.1.1
+__11.08.2023__
+
+- bug: Error on ThreadMemberUpdateEvent due invalid event deserialization
+
+## 5.1.0
+__16.06.2023__
+
+- feature: Support the new unique username system with global display names.
+- bug: remove the `!` in the mention string as it has been deprecated.
+
+## 5.0.4
+__04.06.2023__
+
+- bug: Fix invalid casts
+
+## 5.0.3
+__11.04.2023__
+
+- bug: Always initialize guild caches
+
+## 5.0.2
+__08.04.2023__
+
+- bug: TextChannelBuilder and VoiceChannel builder had rateLimitPerUser and videoQualityMode swapped (#471)
+- documentation: Guild members (#470)
+
 ## 5.0.1
 __18.03.2023__
 
 - documentation: Channel invites (#448)
+- bug: Correctly dispose all resources on bot stop (#451)
+
+## 4.5.1
+__19.03.2023__
+
 - bug: Correctly dispose all resources on bot stop (#451)
 
 ## 5.0.0
