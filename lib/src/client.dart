@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
+import 'package:nyxx_self/src/api_options.dart';
 import 'package:nyxx_self/src/builders/presence.dart';
 import 'package:nyxx_self/src/builders/voice.dart';
 import 'package:nyxx_self/src/client_options.dart';
@@ -12,7 +13,6 @@ import 'package:nyxx_self/src/http/handler.dart';
 import 'package:nyxx_self/src/http/managers/gateway_manager.dart';
 import 'package:nyxx_self/src/intents.dart';
 import 'package:nyxx_self/src/manager_mixin.dart';
-import 'package:nyxx_self/src/api_options.dart';
 import 'package:nyxx_self/src/models/application.dart';
 import 'package:nyxx_self/src/models/guild/guild.dart';
 import 'package:nyxx_self/src/models/snowflake.dart';
@@ -101,25 +101,13 @@ abstract class Nyxx {
   ///
   /// Note that `client.user.id` will contain [Snowflake.zero] if there no `identify` scope.
   static Future<NyxxOAuth2> connectOAuth2(Credentials credentials, {RestClientOptions options = const RestClientOptions()}) =>
-      connectOAuth2WithOptions(OAuth2ApiOptions(credentials: credentials), options);
+      throw UnimplementedError("OAuth is not supported for user accounts");
 
   /// Create an instance of [NyxxOAuth2] using the provided options.
   ///
   /// Note that `client.user.id` will contain [Snowflake.zero] if there no `identify` scope.
   static Future<NyxxOAuth2> connectOAuth2WithOptions(OAuth2ApiOptions apiOptions, [RestClientOptions clientOptions = const RestClientOptions()]) async {
-    clientOptions.logger
-      ..info('Connecting to the REST API via OAuth2')
-      ..fine('Token: ${apiOptions.token}, Authorization: ${apiOptions.authorizationHeader}, User-Agent: ${apiOptions.userAgent}')
-      ..fine('Plugins: ${clientOptions.plugins.map((plugin) => plugin.name).join(', ')}');
-
-    return _doConnect(apiOptions, clientOptions, () async {
-      final client = NyxxOAuth2._(apiOptions, clientOptions);
-      final information = await client.users.fetchCurrentOAuth2Information();
-
-      return client
-        .._application = information.application
-        .._user = information.user ?? PartialUser(id: Snowflake.zero, manager: client.users);
-    }, clientOptions.plugins);
+    throw UnimplementedError("OAuth is not supported for user accounts");
   }
 
   /// Create an instance of [NyxxGateway] that can perform requests to the HTTP API, connects
