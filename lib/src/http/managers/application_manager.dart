@@ -166,7 +166,7 @@ class ApplicationManager {
 
   /// Fetch the current application.
   Future<Application> fetchCurrentApplication() async {
-    final route = HttpRoute()..applications(id: '@me');
+    final route = HttpRoute()..users(id: "@me");
     final request = BasicRequest(route);
 
     final response = await client.httpHandler.executeSafe(request);
@@ -175,7 +175,7 @@ class ApplicationManager {
 
   /// Update the current application.
   Future<Application> updateCurrentApplication(ApplicationUpdateBuilder builder) async {
-    final route = HttpRoute()..applications(id: '@me');
+    final route = HttpRoute()..users(id: "@me");
     final request = BasicRequest(route, method: 'PATCH', body: jsonEncode(builder.build()));
 
     final response = await client.httpHandler.executeSafe(request);
