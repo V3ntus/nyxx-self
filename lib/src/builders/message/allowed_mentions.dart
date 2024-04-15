@@ -1,4 +1,4 @@
-import 'package:nyxx/src/models/snowflake.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
 
 class AllowedMentions {
   List<String>? parse;

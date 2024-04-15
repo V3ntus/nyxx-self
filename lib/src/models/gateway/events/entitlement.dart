@@ -1,5 +1,5 @@
-import 'package:nyxx/src/models/entitlement.dart';
-import 'package:nyxx/src/models/gateway/event.dart';
+import 'package:nyxx_self/src/models/entitlement.dart';
+import 'package:nyxx_self/src/models/gateway/event.dart';
 
 /// {@template entitlement_create_event}
 /// Emitted when an entitlement is created.

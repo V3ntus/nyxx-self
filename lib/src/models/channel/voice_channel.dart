@@ -1,4 +1,4 @@
-import 'package:nyxx/src/models/channel/channel.dart';
+import 'package:nyxx_self/src/models/channel/channel.dart';
 
 /// A voice channel.
 abstract class VoiceChannel implements Channel {

@@ -1,5 +1,5 @@
 import 'package:mocktail/mocktail.dart';
-import 'package:nyxx/nyxx.dart';
+import 'package:nyxx_self/nyxx.dart';
 import 'package:test/test.dart';
 
 class PartialMockSnowflakeEntity extends WritableSnowflakeEntity<MockSnowflakeEntity> {

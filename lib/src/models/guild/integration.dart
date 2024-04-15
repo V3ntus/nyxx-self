@@ -1,9 +1,9 @@
-import 'package:nyxx/src/http/managers/integration_manager.dart';
-import 'package:nyxx/src/models/role.dart';
-import 'package:nyxx/src/models/snowflake.dart';
-import 'package:nyxx/src/models/snowflake_entity/snowflake_entity.dart';
-import 'package:nyxx/src/models/user/user.dart';
-import 'package:nyxx/src/utils/to_string_helper/to_string_helper.dart';
+import 'package:nyxx_self/src/http/managers/integration_manager.dart';
+import 'package:nyxx_self/src/models/role.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
+import 'package:nyxx_self/src/models/snowflake_entity/snowflake_entity.dart';
+import 'package:nyxx_self/src/models/user/user.dart';
+import 'package:nyxx_self/src/utils/to_string_helper/to_string_helper.dart';
 
 /// A partial [Integration].
 class PartialIntegration extends ManagedSnowflakeEntity<Integration> {

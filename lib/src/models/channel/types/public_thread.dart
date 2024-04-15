@@ -1,17 +1,17 @@
-import 'package:nyxx/src/builders/invite.dart';
-import 'package:nyxx/src/builders/permission_overwrite.dart';
-import 'package:nyxx/src/models/channel/channel.dart';
-import 'package:nyxx/src/models/channel/text_channel.dart';
-import 'package:nyxx/src/models/channel/thread.dart';
-import 'package:nyxx/src/models/guild/guild.dart';
-import 'package:nyxx/src/models/guild/member.dart';
-import 'package:nyxx/src/models/invite/invite.dart';
-import 'package:nyxx/src/models/invite/invite_metadata.dart';
-import 'package:nyxx/src/models/message/message.dart';
-import 'package:nyxx/src/models/permission_overwrite.dart';
-import 'package:nyxx/src/models/snowflake.dart';
-import 'package:nyxx/src/models/user/user.dart';
-import 'package:nyxx/src/models/webhook.dart';
+import 'package:nyxx_self/src/builders/invite.dart';
+import 'package:nyxx_self/src/builders/permission_overwrite.dart';
+import 'package:nyxx_self/src/models/channel/channel.dart';
+import 'package:nyxx_self/src/models/channel/text_channel.dart';
+import 'package:nyxx_self/src/models/channel/thread.dart';
+import 'package:nyxx_self/src/models/guild/guild.dart';
+import 'package:nyxx_self/src/models/guild/member.dart';
+import 'package:nyxx_self/src/models/invite/invite.dart';
+import 'package:nyxx_self/src/models/invite/invite_metadata.dart';
+import 'package:nyxx_self/src/models/message/message.dart';
+import 'package:nyxx_self/src/models/permission_overwrite.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
+import 'package:nyxx_self/src/models/user/user.dart';
+import 'package:nyxx_self/src/models/webhook.dart';
 
 /// {@template public_thread}
 /// A public [Thread] channel.

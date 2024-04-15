@@ -1,7 +1,7 @@
 import 'package:http/http.dart';
 
-import 'package:nyxx/src/client.dart';
-import 'package:nyxx/src/http/request.dart';
+import 'package:nyxx_self/src/client.dart';
+import 'package:nyxx_self/src/http/request.dart';
 
 /// A request to Discord's CDN.
 class CdnRequest extends HttpRequest {

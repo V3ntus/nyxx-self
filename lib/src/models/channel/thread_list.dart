@@ -1,5 +1,5 @@
-import 'package:nyxx/src/models/channel/thread.dart';
-import 'package:nyxx/src/utils/to_string_helper/to_string_helper.dart';
+import 'package:nyxx_self/src/models/channel/thread.dart';
+import 'package:nyxx_self/src/utils/to_string_helper/to_string_helper.dart';
 
 /// {@template thread_list}
 /// A list of threads and thread members.

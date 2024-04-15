@@ -1,16 +1,16 @@
-import 'package:nyxx/src/client.dart';
-import 'package:nyxx/src/client_options.dart';
-import 'package:nyxx/src/http/managers/application_command_manager.dart';
-import 'package:nyxx/src/http/managers/channel_manager.dart';
-import 'package:nyxx/src/http/managers/interaction_manager.dart';
-import 'package:nyxx/src/http/managers/invite_manager.dart';
-import 'package:nyxx/src/http/managers/gateway_manager.dart';
-import 'package:nyxx/src/http/managers/guild_manager.dart';
-import 'package:nyxx/src/http/managers/sticker_manager.dart';
-import 'package:nyxx/src/http/managers/user_manager.dart';
-import 'package:nyxx/src/http/managers/webhook_manager.dart';
-import 'package:nyxx/src/http/managers/application_manager.dart';
-import 'package:nyxx/src/http/managers/voice_manager.dart';
+import 'package:nyxx_self/src/client.dart';
+import 'package:nyxx_self/src/client_options.dart';
+import 'package:nyxx_self/src/http/managers/application_command_manager.dart';
+import 'package:nyxx_self/src/http/managers/channel_manager.dart';
+import 'package:nyxx_self/src/http/managers/interaction_manager.dart';
+import 'package:nyxx_self/src/http/managers/invite_manager.dart';
+import 'package:nyxx_self/src/http/managers/gateway_manager.dart';
+import 'package:nyxx_self/src/http/managers/guild_manager.dart';
+import 'package:nyxx_self/src/http/managers/sticker_manager.dart';
+import 'package:nyxx_self/src/http/managers/user_manager.dart';
+import 'package:nyxx_self/src/http/managers/webhook_manager.dart';
+import 'package:nyxx_self/src/http/managers/application_manager.dart';
+import 'package:nyxx_self/src/http/managers/voice_manager.dart';
 
 /// An internal mixin to add managers to a [Nyxx] instance.
 mixin ManagerMixin implements Nyxx {

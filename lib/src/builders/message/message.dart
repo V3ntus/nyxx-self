@@ -1,11 +1,11 @@
-import 'package:nyxx/src/builders/builder.dart';
-import 'package:nyxx/src/builders/message/allowed_mentions.dart';
-import 'package:nyxx/src/builders/message/attachment.dart';
-import 'package:nyxx/src/builders/message/component.dart';
-import 'package:nyxx/src/builders/message/embed.dart';
-import 'package:nyxx/src/builders/sentinels.dart';
-import 'package:nyxx/src/models/message/message.dart';
-import 'package:nyxx/src/models/snowflake.dart';
+import 'package:nyxx_self/src/builders/builder.dart';
+import 'package:nyxx_self/src/builders/message/allowed_mentions.dart';
+import 'package:nyxx_self/src/builders/message/attachment.dart';
+import 'package:nyxx_self/src/builders/message/component.dart';
+import 'package:nyxx_self/src/builders/message/embed.dart';
+import 'package:nyxx_self/src/builders/sentinels.dart';
+import 'package:nyxx_self/src/models/message/message.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
 
 class MessageBuilder extends CreateBuilder<Message> {
   String? content;

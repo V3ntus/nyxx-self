@@ -1,12 +1,12 @@
-import 'package:nyxx/src/builders/builder.dart';
-import 'package:nyxx/src/models/channel/channel.dart';
-import 'package:nyxx/src/models/commands/application_command_option.dart';
-import 'package:nyxx/src/models/emoji.dart';
-import 'package:nyxx/src/models/message/component.dart';
-import 'package:nyxx/src/models/role.dart';
-import 'package:nyxx/src/models/snowflake.dart';
-import 'package:nyxx/src/models/snowflake_entity/snowflake_entity.dart';
-import 'package:nyxx/src/models/user/user.dart';
+import 'package:nyxx_self/src/builders/builder.dart';
+import 'package:nyxx_self/src/models/channel/channel.dart';
+import 'package:nyxx_self/src/models/commands/application_command_option.dart';
+import 'package:nyxx_self/src/models/emoji.dart';
+import 'package:nyxx_self/src/models/message/component.dart';
+import 'package:nyxx_self/src/models/role.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
+import 'package:nyxx_self/src/models/snowflake_entity/snowflake_entity.dart';
+import 'package:nyxx_self/src/models/user/user.dart';
 
 abstract class MessageComponentBuilder extends CreateBuilder<MessageComponent> {
   MessageComponentType type;

@@ -23,7 +23,7 @@ A complete, robust and efficient wrapper around Discord's API for bots & applica
 
 Basic usage:
 ```dart
-import 'package:nyxx/nyxx.dart';
+import 'package:nyxx_self/nyxx.dart';
 
 void main() async {
   final client = await Nyxx.connectGateway('<TOKEN>', GatewayIntents.allUnprivileged);

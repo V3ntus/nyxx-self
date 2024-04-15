@@ -1,6 +1,6 @@
-import 'package:nyxx/src/builders/builder.dart';
-import 'package:nyxx/src/builders/sentinels.dart';
-import 'package:nyxx/src/models/user/application_role_connection.dart';
+import 'package:nyxx_self/src/builders/builder.dart';
+import 'package:nyxx_self/src/builders/sentinels.dart';
+import 'package:nyxx_self/src/models/user/application_role_connection.dart';
 
 class ApplicationRoleConnectionUpdateBuilder extends UpdateBuilder<ApplicationRoleConnection> {
   String? platformName;

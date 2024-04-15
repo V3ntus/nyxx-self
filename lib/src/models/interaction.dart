@@ -1,25 +1,25 @@
-import 'package:nyxx/src/builders/application_command.dart';
-import 'package:nyxx/src/builders/builder.dart';
-import 'package:nyxx/src/builders/interaction_response.dart';
-import 'package:nyxx/src/builders/message/message.dart';
-import 'package:nyxx/src/errors.dart';
-import 'package:nyxx/src/http/managers/interaction_manager.dart';
-import 'package:nyxx/src/models/application.dart';
-import 'package:nyxx/src/models/channel/channel.dart';
-import 'package:nyxx/src/models/commands/application_command.dart';
-import 'package:nyxx/src/models/commands/application_command_option.dart';
-import 'package:nyxx/src/models/entitlement.dart';
-import 'package:nyxx/src/models/guild/guild.dart';
-import 'package:nyxx/src/models/guild/member.dart';
-import 'package:nyxx/src/models/locale.dart';
-import 'package:nyxx/src/models/message/attachment.dart';
-import 'package:nyxx/src/models/message/component.dart';
-import 'package:nyxx/src/models/message/message.dart';
-import 'package:nyxx/src/models/permissions.dart';
-import 'package:nyxx/src/models/role.dart';
-import 'package:nyxx/src/models/snowflake.dart';
-import 'package:nyxx/src/models/user/user.dart';
-import 'package:nyxx/src/utils/to_string_helper/to_string_helper.dart';
+import 'package:nyxx_self/src/builders/application_command.dart';
+import 'package:nyxx_self/src/builders/builder.dart';
+import 'package:nyxx_self/src/builders/interaction_response.dart';
+import 'package:nyxx_self/src/builders/message/message.dart';
+import 'package:nyxx_self/src/errors.dart';
+import 'package:nyxx_self/src/http/managers/interaction_manager.dart';
+import 'package:nyxx_self/src/models/application.dart';
+import 'package:nyxx_self/src/models/channel/channel.dart';
+import 'package:nyxx_self/src/models/commands/application_command.dart';
+import 'package:nyxx_self/src/models/commands/application_command_option.dart';
+import 'package:nyxx_self/src/models/entitlement.dart';
+import 'package:nyxx_self/src/models/guild/guild.dart';
+import 'package:nyxx_self/src/models/guild/member.dart';
+import 'package:nyxx_self/src/models/locale.dart';
+import 'package:nyxx_self/src/models/message/attachment.dart';
+import 'package:nyxx_self/src/models/message/component.dart';
+import 'package:nyxx_self/src/models/message/message.dart';
+import 'package:nyxx_self/src/models/permissions.dart';
+import 'package:nyxx_self/src/models/role.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
+import 'package:nyxx_self/src/models/user/user.dart';
+import 'package:nyxx_self/src/utils/to_string_helper/to_string_helper.dart';
 
 /// A language locale available in the Discord client.
 ///

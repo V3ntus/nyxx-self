@@ -1,6 +1,6 @@
-import 'package:nyxx/src/models/permissions.dart';
-import 'package:nyxx/src/models/snowflake.dart';
-import 'package:nyxx/src/utils/to_string_helper/to_string_helper.dart';
+import 'package:nyxx_self/src/models/permissions.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
+import 'package:nyxx_self/src/utils/to_string_helper/to_string_helper.dart';
 
 /// {@template permission_overwrite}
 /// A set of overwrites to apply to permissions within a specific channel.

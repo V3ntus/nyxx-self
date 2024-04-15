@@ -1,6 +1,6 @@
-import 'package:nyxx/src/gateway/gateway.dart';
-import 'package:nyxx/src/models/gateway/opcode.dart';
-import 'package:nyxx/src/utils/to_string_helper/to_string_helper.dart';
+import 'package:nyxx_self/src/gateway/gateway.dart';
+import 'package:nyxx_self/src/models/gateway/opcode.dart';
+import 'package:nyxx_self/src/utils/to_string_helper/to_string_helper.dart';
 
 /// {@template gateway_event}
 /// The base class for all events received from the Gateway.

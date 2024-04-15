@@ -1,7 +1,7 @@
 import 'package:http/http.dart' hide MultipartRequest;
 import 'package:http/http.dart' as http show MultipartRequest;
-import 'package:nyxx/src/client.dart';
-import 'package:nyxx/src/http/route.dart';
+import 'package:nyxx_self/src/client.dart';
+import 'package:nyxx_self/src/http/route.dart';
 
 /// An HTTP request to be made against the API.
 ///

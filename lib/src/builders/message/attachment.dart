@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:path/path.dart' as path_lib;
 
-import 'package:nyxx/src/builders/builder.dart';
-import 'package:nyxx/src/models/message/attachment.dart';
+import 'package:nyxx_self/src/builders/builder.dart';
+import 'package:nyxx_self/src/models/message/attachment.dart';
 
 class AttachmentBuilder extends Builder<Attachment> {
   List<int> data;

@@ -1,5 +1,5 @@
-import 'package:nyxx/src/models/gateway/event.dart';
-import 'package:nyxx/src/models/interaction.dart';
+import 'package:nyxx_self/src/models/gateway/event.dart';
+import 'package:nyxx_self/src/models/interaction.dart';
 
 /// {@template interaction_create_event}
 /// Emitted when an interaction is received by the client.

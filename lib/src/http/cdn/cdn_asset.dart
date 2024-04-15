@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 
-import 'package:nyxx/src/client.dart';
-import 'package:nyxx/src/http/cdn/cdn_request.dart';
-import 'package:nyxx/src/http/response.dart';
-import 'package:nyxx/src/http/route.dart';
+import 'package:nyxx_self/src/client.dart';
+import 'package:nyxx_self/src/http/cdn/cdn_request.dart';
+import 'package:nyxx_self/src/http/response.dart';
+import 'package:nyxx_self/src/http/route.dart';
 
 /// Available formats for CDN endpoints.
 enum CdnFormat {

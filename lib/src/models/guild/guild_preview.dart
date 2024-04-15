@@ -1,6 +1,6 @@
-import 'package:nyxx/src/models/emoji.dart';
-import 'package:nyxx/src/models/guild/guild.dart';
-import 'package:nyxx/src/models/sticker/guild_sticker.dart';
+import 'package:nyxx_self/src/models/emoji.dart';
+import 'package:nyxx_self/src/models/guild/guild.dart';
+import 'package:nyxx_self/src/models/sticker/guild_sticker.dart';
 
 /// {@template guild_preview}
 /// A preview of a [Guild].

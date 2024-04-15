@@ -1,15 +1,15 @@
 import 'dart:convert';
 
-import 'package:nyxx/src/builders/guild/member.dart';
-import 'package:nyxx/src/errors.dart';
-import 'package:nyxx/src/http/managers/manager.dart';
-import 'package:nyxx/src/http/request.dart';
-import 'package:nyxx/src/http/route.dart';
-import 'package:nyxx/src/models/guild/member.dart';
-import 'package:nyxx/src/models/permissions.dart';
-import 'package:nyxx/src/models/snowflake.dart';
-import 'package:nyxx/src/utils/cache_helpers.dart';
-import 'package:nyxx/src/utils/parsing_helpers.dart';
+import 'package:nyxx_self/src/builders/guild/member.dart';
+import 'package:nyxx_self/src/errors.dart';
+import 'package:nyxx_self/src/http/managers/manager.dart';
+import 'package:nyxx_self/src/http/request.dart';
+import 'package:nyxx_self/src/http/route.dart';
+import 'package:nyxx_self/src/models/guild/member.dart';
+import 'package:nyxx_self/src/models/permissions.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
+import 'package:nyxx_self/src/utils/cache_helpers.dart';
+import 'package:nyxx_self/src/utils/parsing_helpers.dart';
 
 /// A manager for [Member]s.
 class MemberManager extends Manager<Member> {

@@ -1,13 +1,13 @@
-import 'package:nyxx/src/http/managers/application_command_manager.dart';
-import 'package:nyxx/src/models/application.dart';
-import 'package:nyxx/src/models/commands/application_command_option.dart';
-import 'package:nyxx/src/models/commands/application_command_permissions.dart';
-import 'package:nyxx/src/models/guild/guild.dart';
-import 'package:nyxx/src/models/interaction.dart';
-import 'package:nyxx/src/models/locale.dart';
-import 'package:nyxx/src/models/permissions.dart';
-import 'package:nyxx/src/models/snowflake.dart';
-import 'package:nyxx/src/models/snowflake_entity/snowflake_entity.dart';
+import 'package:nyxx_self/src/http/managers/application_command_manager.dart';
+import 'package:nyxx_self/src/models/application.dart';
+import 'package:nyxx_self/src/models/commands/application_command_option.dart';
+import 'package:nyxx_self/src/models/commands/application_command_permissions.dart';
+import 'package:nyxx_self/src/models/guild/guild.dart';
+import 'package:nyxx_self/src/models/interaction.dart';
+import 'package:nyxx_self/src/models/locale.dart';
+import 'package:nyxx_self/src/models/permissions.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
+import 'package:nyxx_self/src/models/snowflake_entity/snowflake_entity.dart';
 
 /// A partial [ApplicationCommand].
 class PartialApplicationCommand extends WritableSnowflakeEntity<ApplicationCommand> {

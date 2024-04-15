@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:nyxx/src/client.dart';
-import 'package:nyxx/src/plugin/plugin.dart';
+import 'package:nyxx_self/src/client.dart';
+import 'package:nyxx_self/src/plugin/plugin.dart';
 
 /// A global instance of the [CliIntegration] plugin.
 final cliIntegration = CliIntegration();

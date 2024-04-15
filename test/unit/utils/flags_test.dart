@@ -1,4 +1,4 @@
-import 'package:nyxx/src/utils/flags.dart';
+import 'package:nyxx_self/src/utils/flags.dart';
 import 'package:test/test.dart';
 
 void main() {

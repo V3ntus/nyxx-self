@@ -1,6 +1,6 @@
-import 'package:nyxx/src/builders/builder.dart';
-import 'package:nyxx/src/models/guild/auto_moderation.dart';
-import 'package:nyxx/src/models/snowflake.dart';
+import 'package:nyxx_self/src/builders/builder.dart';
+import 'package:nyxx_self/src/models/guild/auto_moderation.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
 
 class AutoModerationRuleBuilder extends CreateBuilder<AutoModerationRule> {
   String name;

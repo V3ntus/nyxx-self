@@ -1,18 +1,18 @@
-import 'package:nyxx/src/builders/channel/thread.dart';
-import 'package:nyxx/src/builders/invite.dart';
-import 'package:nyxx/src/builders/permission_overwrite.dart';
-import 'package:nyxx/src/models/channel/channel.dart';
-import 'package:nyxx/src/models/channel/guild_channel.dart';
-import 'package:nyxx/src/models/channel/thread.dart';
-import 'package:nyxx/src/models/channel/thread_aggregate.dart';
-import 'package:nyxx/src/models/channel/thread_list.dart';
-import 'package:nyxx/src/models/channel/types/forum.dart';
-import 'package:nyxx/src/models/guild/guild.dart';
-import 'package:nyxx/src/models/invite/invite.dart';
-import 'package:nyxx/src/models/invite/invite_metadata.dart';
-import 'package:nyxx/src/models/permission_overwrite.dart';
-import 'package:nyxx/src/models/snowflake.dart';
-import 'package:nyxx/src/models/webhook.dart';
+import 'package:nyxx_self/src/builders/channel/thread.dart';
+import 'package:nyxx_self/src/builders/invite.dart';
+import 'package:nyxx_self/src/builders/permission_overwrite.dart';
+import 'package:nyxx_self/src/models/channel/channel.dart';
+import 'package:nyxx_self/src/models/channel/guild_channel.dart';
+import 'package:nyxx_self/src/models/channel/thread.dart';
+import 'package:nyxx_self/src/models/channel/thread_aggregate.dart';
+import 'package:nyxx_self/src/models/channel/thread_list.dart';
+import 'package:nyxx_self/src/models/channel/types/forum.dart';
+import 'package:nyxx_self/src/models/guild/guild.dart';
+import 'package:nyxx_self/src/models/invite/invite.dart';
+import 'package:nyxx_self/src/models/invite/invite_metadata.dart';
+import 'package:nyxx_self/src/models/permission_overwrite.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
+import 'package:nyxx_self/src/models/webhook.dart';
 
 /// {@template guild_media_channel}
 /// A channel in a guild in which threads can be posted, similarly to a [ForumChannel].

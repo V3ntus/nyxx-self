@@ -1,10 +1,10 @@
-import 'package:nyxx/src/http/cdn/cdn_asset.dart';
-import 'package:nyxx/src/http/managers/emoji_manager.dart';
-import 'package:nyxx/src/http/route.dart';
-import 'package:nyxx/src/models/role.dart';
-import 'package:nyxx/src/models/snowflake.dart';
-import 'package:nyxx/src/models/snowflake_entity/snowflake_entity.dart';
-import 'package:nyxx/src/models/user/user.dart';
+import 'package:nyxx_self/src/http/cdn/cdn_asset.dart';
+import 'package:nyxx_self/src/http/managers/emoji_manager.dart';
+import 'package:nyxx_self/src/http/route.dart';
+import 'package:nyxx_self/src/models/role.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
+import 'package:nyxx_self/src/models/snowflake_entity/snowflake_entity.dart';
+import 'package:nyxx_self/src/models/user/user.dart';
 
 /// A partial [Emoji] object.
 class PartialEmoji extends WritableSnowflakeEntity<Emoji> {

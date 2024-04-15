@@ -1,22 +1,22 @@
 import 'dart:convert';
 
-import 'package:nyxx/src/builders/application_command.dart';
-import 'package:nyxx/src/cache/cache.dart';
-import 'package:nyxx/src/http/managers/manager.dart';
-import 'package:nyxx/src/http/request.dart';
-import 'package:nyxx/src/http/response.dart';
-import 'package:nyxx/src/http/route.dart';
-import 'package:nyxx/src/models/application.dart';
-import 'package:nyxx/src/models/channel/channel.dart';
-import 'package:nyxx/src/models/commands/application_command.dart';
-import 'package:nyxx/src/models/commands/application_command_option.dart';
-import 'package:nyxx/src/models/commands/application_command_permissions.dart';
-import 'package:nyxx/src/models/interaction.dart';
-import 'package:nyxx/src/models/locale.dart';
-import 'package:nyxx/src/models/permissions.dart';
-import 'package:nyxx/src/models/snowflake.dart';
-import 'package:nyxx/src/utils/cache_helpers.dart';
-import 'package:nyxx/src/utils/parsing_helpers.dart';
+import 'package:nyxx_self/src/builders/application_command.dart';
+import 'package:nyxx_self/src/cache/cache.dart';
+import 'package:nyxx_self/src/http/managers/manager.dart';
+import 'package:nyxx_self/src/http/request.dart';
+import 'package:nyxx_self/src/http/response.dart';
+import 'package:nyxx_self/src/http/route.dart';
+import 'package:nyxx_self/src/models/application.dart';
+import 'package:nyxx_self/src/models/channel/channel.dart';
+import 'package:nyxx_self/src/models/commands/application_command.dart';
+import 'package:nyxx_self/src/models/commands/application_command_option.dart';
+import 'package:nyxx_self/src/models/commands/application_command_permissions.dart';
+import 'package:nyxx_self/src/models/interaction.dart';
+import 'package:nyxx_self/src/models/locale.dart';
+import 'package:nyxx_self/src/models/permissions.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
+import 'package:nyxx_self/src/utils/cache_helpers.dart';
+import 'package:nyxx_self/src/utils/parsing_helpers.dart';
 
 /// A [Manager] for [ApplicationCommand]s.
 ///

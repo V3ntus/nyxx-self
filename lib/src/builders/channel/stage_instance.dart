@@ -1,6 +1,6 @@
-import 'package:nyxx/src/builders/builder.dart';
-import 'package:nyxx/src/models/channel/stage_instance.dart';
-import 'package:nyxx/src/models/snowflake.dart';
+import 'package:nyxx_self/src/builders/builder.dart';
+import 'package:nyxx_self/src/models/channel/stage_instance.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
 
 class StageInstanceBuilder extends CreateBuilder<StageInstance> {
   String topic;

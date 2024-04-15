@@ -1,6 +1,6 @@
-import 'package:nyxx/src/models/discord_color.dart';
-import 'package:nyxx/src/models/emoji.dart';
-import 'package:nyxx/src/utils/to_string_helper/to_string_helper.dart';
+import 'package:nyxx_self/src/models/discord_color.dart';
+import 'package:nyxx_self/src/models/emoji.dart';
+import 'package:nyxx_self/src/utils/to_string_helper/to_string_helper.dart';
 
 /// {@template reaction}
 /// A reaction to a message.

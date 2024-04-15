@@ -1,18 +1,18 @@
 import 'dart:convert';
 
-import 'package:nyxx/src/builders/application.dart';
-import 'package:nyxx/src/client.dart';
-import 'package:nyxx/src/http/request.dart';
-import 'package:nyxx/src/http/route.dart';
-import 'package:nyxx/src/models/application.dart';
-import 'package:nyxx/src/models/guild/guild.dart';
-import 'package:nyxx/src/models/locale.dart';
-import 'package:nyxx/src/models/permissions.dart';
-import 'package:nyxx/src/models/sku.dart';
-import 'package:nyxx/src/models/snowflake.dart';
-import 'package:nyxx/src/models/team.dart';
-import 'package:nyxx/src/models/user/user.dart';
-import 'package:nyxx/src/utils/parsing_helpers.dart';
+import 'package:nyxx_self/src/builders/application.dart';
+import 'package:nyxx_self/src/client.dart';
+import 'package:nyxx_self/src/http/request.dart';
+import 'package:nyxx_self/src/http/route.dart';
+import 'package:nyxx_self/src/models/application.dart';
+import 'package:nyxx_self/src/models/guild/guild.dart';
+import 'package:nyxx_self/src/models/locale.dart';
+import 'package:nyxx_self/src/models/permissions.dart';
+import 'package:nyxx_self/src/models/sku.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
+import 'package:nyxx_self/src/models/team.dart';
+import 'package:nyxx_self/src/models/user/user.dart';
+import 'package:nyxx_self/src/utils/parsing_helpers.dart';
 
 /// A manager for [Application]s.
 // See the comment on PartialApplication for why we do not implement Manager.

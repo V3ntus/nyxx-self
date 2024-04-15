@@ -1,8 +1,8 @@
-import 'package:nyxx/src/builders/image.dart';
-import 'package:nyxx/src/models/channel/types/forum.dart';
-import 'package:nyxx/src/models/guild/scheduled_event.dart';
-import 'package:nyxx/src/models/snowflake.dart';
-import 'package:nyxx/src/utils/flags.dart';
+import 'package:nyxx_self/src/builders/image.dart';
+import 'package:nyxx_self/src/models/channel/types/forum.dart';
+import 'package:nyxx_self/src/models/guild/scheduled_event.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
+import 'package:nyxx_self/src/utils/flags.dart';
 
 // ASCII encoded "nyxx"
 const sentinelInteger = 0x6E797878;

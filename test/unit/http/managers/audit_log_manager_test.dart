@@ -1,5 +1,5 @@
 import 'package:matcher/expect.dart';
-import 'package:nyxx/nyxx.dart';
+import 'package:nyxx_self/nyxx.dart';
 
 import '../../../test_manager.dart';
 

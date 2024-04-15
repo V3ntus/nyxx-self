@@ -1,8 +1,8 @@
-import 'package:nyxx/src/http/managers/sticker_manager.dart';
-import 'package:nyxx/src/models/snowflake.dart';
-import 'package:nyxx/src/models/snowflake_entity/snowflake_entity.dart';
-import 'package:nyxx/src/models/sticker/sticker.dart';
-import 'package:nyxx/src/models/user/user.dart';
+import 'package:nyxx_self/src/http/managers/sticker_manager.dart';
+import 'package:nyxx_self/src/models/snowflake.dart';
+import 'package:nyxx_self/src/models/snowflake_entity/snowflake_entity.dart';
+import 'package:nyxx_self/src/models/sticker/sticker.dart';
+import 'package:nyxx_self/src/models/user/user.dart';
 
 class PartialGlobalSticker extends ManagedSnowflakeEntity<GlobalSticker> {
   @override

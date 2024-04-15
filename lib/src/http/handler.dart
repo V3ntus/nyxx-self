@@ -3,13 +3,13 @@ import 'dart:collection';
 
 import 'package:http/http.dart' hide MultipartRequest;
 import 'package:logging/logging.dart';
-import 'package:nyxx/src/api_options.dart';
-import 'package:nyxx/src/client.dart';
-import 'package:nyxx/src/http/bucket.dart';
-import 'package:nyxx/src/http/request.dart';
-import 'package:nyxx/src/http/response.dart';
-import 'package:nyxx/src/plugin/plugin.dart';
-import 'package:nyxx/src/utils/iterable_extension.dart';
+import 'package:nyxx_self/src/api_options.dart';
+import 'package:nyxx_self/src/client.dart';
+import 'package:nyxx_self/src/http/bucket.dart';
+import 'package:nyxx_self/src/http/request.dart';
+import 'package:nyxx_self/src/http/response.dart';
+import 'package:nyxx_self/src/plugin/plugin.dart';
+import 'package:nyxx_self/src/utils/iterable_extension.dart';
 
 extension on HttpRequest {
   String get loggingId => '$method $route';

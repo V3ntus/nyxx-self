@@ -1,7 +1,7 @@
-import 'package:nyxx/src/builders/builder.dart';
-import 'package:nyxx/src/builders/image.dart';
-import 'package:nyxx/src/builders/sentinels.dart';
-import 'package:nyxx/src/models/user/user.dart';
+import 'package:nyxx_self/src/builders/builder.dart';
+import 'package:nyxx_self/src/builders/image.dart';
+import 'package:nyxx_self/src/builders/sentinels.dart';
+import 'package:nyxx_self/src/models/user/user.dart';
 
 class UserUpdateBuilder extends UpdateBuilder<User> {
   /// New user's username.

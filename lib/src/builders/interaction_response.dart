@@ -1,8 +1,8 @@
-import 'package:nyxx/src/builders/application_command.dart';
-import 'package:nyxx/src/builders/builder.dart';
-import 'package:nyxx/src/builders/message/component.dart';
-import 'package:nyxx/src/builders/message/message.dart';
-import 'package:nyxx/src/models/message/message.dart';
+import 'package:nyxx_self/src/builders/application_command.dart';
+import 'package:nyxx_self/src/builders/builder.dart';
+import 'package:nyxx_self/src/builders/message/component.dart';
+import 'package:nyxx_self/src/builders/message/message.dart';
+import 'package:nyxx_self/src/models/message/message.dart';
 
 class InteractionResponseBuilder extends CreateBuilder<InteractionResponseBuilder> {
   InteractionCallbackType type;
