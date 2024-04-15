@@ -1,5 +1,5 @@
-export 'src/api_options.dart' show ApiOptions, RestApiOptions, GatewayApiOptions, GatewayCompression, GatewayPayloadFormat, OAuth2ApiOptions;
-export 'src/client.dart' show Nyxx, NyxxRest, NyxxGateway, NyxxOAuth2;
+export 'src/api_options.dart' show ApiOptions, RestApiOptions, GatewayApiOptions, GatewayCompression, GatewayPayloadFormat;
+export 'src/client.dart' show Nyxx, NyxxRest, NyxxGateway;
 export 'src/client_options.dart' show ClientOptions, RestClientOptions, GatewayClientOptions;
 export 'src/errors.dart'
     show
@@ -73,7 +73,7 @@ export 'src/builders/application.dart' show ApplicationUpdateBuilder, Applicatio
 export 'src/cache/cache.dart' show Cache, CacheConfig;
 
 export 'src/http/bucket.dart' show HttpBucket;
-export 'src/http/handler.dart' show HttpHandler, Oauth2HttpHandler, RateLimitInfo;
+export 'src/http/handler.dart' show HttpHandler, RateLimitInfo;
 export 'src/http/request.dart' show BasicRequest, HttpRequest, MultipartRequest, FormDataRequest;
 export 'src/http/response.dart' show FieldError, HttpErrorData, HttpResponse, HttpResponseError, HttpResponseSuccess;
 export 'src/http/route.dart' show HttpRoute, HttpRouteParam, HttpRoutePart;
@@ -311,7 +311,6 @@ export 'src/models/interaction.dart'
         InteractionContextType;
 export 'src/models/entitlement.dart' show Entitlement, PartialEntitlement, EntitlementType;
 export 'src/models/sku.dart' show Sku, SkuType, SkuFlags;
-export 'src/models/oauth2.dart' show OAuth2Information;
 
 export 'src/utils/flags.dart' show Flag, Flags;
 export 'src/intents.dart' show GatewayIntents;
@@ -332,4 +331,3 @@ export 'package:http/http.dart'
         StreamedResponse;
 export 'package:logging/logging.dart' show Logger, Level;
 export 'package:runtime_type/runtime_type.dart' show RuntimeType;
-export 'package:oauth2/oauth2.dart' show Credentials;
