@@ -1,7 +1,6 @@
 import 'package:nyxx_self/src/builders/presence.dart';
 import 'package:nyxx_self/src/intents.dart';
 import 'package:nyxx_self/src/utils/flags.dart';
-import 'package:oauth2/oauth2.dart';
 
 /// Options for connecting to the Discord API.
 abstract class ApiOptions {
@@ -50,21 +49,6 @@ class RestApiOptions extends ApiOptions {
 
   /// Create a new [RestApiOptions].
   RestApiOptions({required this.token, super.userAgent});
-}
-
-/// Options for connecting the the Discord API using credentials from an OAuth2 flow.
-class OAuth2ApiOptions extends ApiOptions implements RestApiOptions {
-  /// The credentials to use when connecting to the API.
-  Credentials credentials;
-
-  @override
-  String get token => credentials.accessToken;
-
-  @override
-  String get authorizationHeader => 'Bearer ${credentials.accessToken}';
-
-  /// Create a new [OAuth2ApiOptions].
-  OAuth2ApiOptions({required this.credentials, super.userAgent});
 }
 
 /// Options for connecting to the Discord API for making HTTP requests and connecting to the Gateway

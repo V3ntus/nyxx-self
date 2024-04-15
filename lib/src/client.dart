@@ -19,7 +19,6 @@ import 'package:nyxx_self/src/models/snowflake.dart';
 import 'package:nyxx_self/src/models/user/user.dart';
 import 'package:nyxx_self/src/plugin/plugin.dart';
 import 'package:nyxx_self/src/utils/flags.dart';
-import 'package:oauth2/oauth2.dart';
 import 'package:runtime_type/runtime_type.dart';
 
 /// A helper function to nest and execute calls to plugin connect methods.
@@ -94,20 +93,6 @@ abstract class Nyxx {
         .._application = await client.applications.fetchCurrentApplication()
         .._user = await client.users.fetchCurrentUser();
     }, clientOptions.plugins);
-  }
-
-  /// Create an instance of [NyxxOAuth2] that can perform requests to the HTTP API and is
-  /// authenticated with OAuth2 [Credentials].
-  ///
-  /// Note that `client.user.id` will contain [Snowflake.zero] if there no `identify` scope.
-  static Future<NyxxOAuth2> connectOAuth2(Credentials credentials, {RestClientOptions options = const RestClientOptions()}) =>
-      throw UnimplementedError("OAuth is not supported for user accounts");
-
-  /// Create an instance of [NyxxOAuth2] using the provided options.
-  ///
-  /// Note that `client.user.id` will contain [Snowflake.zero] if there no `identify` scope.
-  static Future<NyxxOAuth2> connectOAuth2WithOptions(OAuth2ApiOptions apiOptions, [RestClientOptions clientOptions = const RestClientOptions()]) async {
-    throw UnimplementedError("OAuth is not supported for user accounts");
   }
 
   /// Create an instance of [NyxxGateway] that can perform requests to the HTTP API, connects
@@ -192,53 +177,6 @@ class NyxxRest with ManagerMixin implements Nyxx {
   Future<void> leaveThread(Snowflake id) => channels.leaveThread(id);
 
   /// List the guilds the current user is a member of.
-  Future<List<UserGuild>> listGuilds({Snowflake? before, Snowflake? after, int? limit}) =>
-      users.listCurrentUserGuilds(before: before, after: after, limit: limit);
-
-  @override
-  Future<void> close() {
-    logger.info('Closing client');
-    return _doClose(this, () async => httpHandler.close(), options.plugins);
-  }
-}
-
-class NyxxOAuth2 with ManagerMixin implements NyxxRest {
-  @override
-  final OAuth2ApiOptions apiOptions;
-
-  @override
-  final RestClientOptions options;
-
-  @override
-  late final HttpHandler httpHandler = Oauth2HttpHandler(this);
-
-  @override
-  Logger get logger => options.logger;
-
-  @override
-  PartialApplication get application => _application;
-
-  @override
-  late final PartialApplication _application;
-
-  @override
-  PartialUser get user => _user;
-
-  @override
-  late final PartialUser _user;
-
-  @override
-  final Completer<void> _initializedCompleter = Completer();
-
-  NyxxOAuth2._(this.apiOptions, this.options);
-
-  @override
-  Future<void> joinThread(Snowflake id) => channels.joinThread(id);
-
-  @override
-  Future<void> leaveThread(Snowflake id) => channels.leaveThread(id);
-
-  @override
   Future<List<UserGuild>> listGuilds({Snowflake? before, Snowflake? after, int? limit}) =>
       users.listCurrentUserGuilds(before: before, after: after, limit: limit);
 
