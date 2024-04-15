@@ -23,7 +23,7 @@ abstract class ApiOptions {
   String get baseUri => '/api/v$apiVersion';
 
   /// The version of the API to use.
-  int get apiVersion => 10;
+  int get apiVersion => 9;
 
   /// The value of the `Authorization` header to use when authenticating requests.
   String get authorizationHeader;
